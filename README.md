@@ -7,7 +7,7 @@ Some fun facts about me:
 1. I love basketball.
 2. I love science fiction movies/books.
 
-<img src="https://resizing.flixster.com/FynelrRwgvfx488b9LuR9iPhSP8=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvMzBlNTZjYjYtYjRhOC00ZjkxLWIwYWEtZDhjNzdjODM5YjliLmpwZw==" alt="sci-fi show" style="width:300px; border-radius:15px;">
+<img src="https://resizing.flixster.com/FynelrRwgvfx488b9LuR9iPhSP8=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvMzBlNTZjYjYtYjRhOC00ZjkxLWIwYWEtZDhjNzdjODM5YjliLmpwZw==" alt="sci-fi show" style="width:300px; border-radius:30px;">
 
 
 # Table of Contents
