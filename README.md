@@ -1,7 +1,7 @@
 # Template Portfolio
 
 # About Me
-*My name is Betsegaw Wosoro, I'm a senior studying physics and computer science.
+My name is Betsegaw Wosoro. I'm a senior studying physics and computer science.
 
 Some fun facts about me:
 1. I love basketball.
