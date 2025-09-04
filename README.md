@@ -1,4 +1,4 @@
-# Template Portfolio
+# Portfolio
 
 # About Me
 My name is Betsegaw Wosoro. I'm a senior studying physics and computer science.
