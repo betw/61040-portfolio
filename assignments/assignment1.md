@@ -32,9 +32,9 @@
    2. Not ahead of work just keeping up
    3. Allocating time for different assignments across multiple days
 **Nine problems to Three**:
-   1. Deciding what to eat
-   2. Finding ingredients
-   3. Shooping for the ingredients
+   1. Deciding what meals to eat
+   2. Finding ingredients for meals
+   3. Shooping for ingredients
    4. Overspending on any one category (food, travel, etc...)
    5. Not knowing specifically where your money went
    6. Not saving enough to travel/hang out with friends
