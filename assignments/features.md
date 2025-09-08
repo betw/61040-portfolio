@@ -1,3 +1,4 @@
+## Features for each of the 3 Problems ##
 | Problem | Feature | What it Does | Why it Addresses the Problem |
 |---|---|---|---|
 | **Best Account for Me** | **1. Preference Selection/Non-selection** | Allows users to specify their preferences (e.g., low fees, high interest, brick-and-mortar access) but also lets them skip any they don't want to provide. | It gives users control over their data, which addresses privacy concerns and overcomes the hurdle of being forced to provide too much information. This builds trust and encourages user adoption. |
