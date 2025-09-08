@@ -56,12 +56,16 @@ Psychologists & Mental Health Professionals: Experts in productivity, time manag
 | | **Complexity of Budgeting:** [9](https://finances.extension.wisc.edu/articles/cutting-back-and-keeping-up-when-money-is-tight/) | Many people find it difficult to stick to a budget because their spending changes frequently, making the process of tracking expenses tedious and discouraging. |
 | | **Behavioral Finance Challenges:** [10](https://www.allgenfinancial.com/reasons-people-cant-retire/) | Behavioral finance principles like "procrastination" and the lack of a "written plan" are major reasons people fail to save, which points to the need for a solution that
 
-4. Track a Good Day's Work
-Low Perceived Productivity: A 2025 study cited by Lifehack Method found that the average employee is productive for just 2 hours and 53 minutes each day. This statistic powerfully illustrates the widespread feeling of not getting enough work done. 7
-
-Lack of a System: The same study revealed that 82% of people don't have a time management system in place. This indicates a massive potential user base that is actively seeking a solution to this problem, but hasn't found one that works for them. 7
-
-Comparables and their Limitations
-Time Tracking Apps (e.g., My Hours, Timely): These are designed for professional use, often for billing clients or managing teams. They allow users to log hours spent on specific tasks. They are often too complex and focused on business needs rather than personal productivity. They can be expensive and may require a lot of manual input, which discourages individual use. 8
-
-Pomodoro Timers: Apps and websites that use the Pomodoro Technique, which breaks work into timed intervals. These apps don't offer the holistic view of a user's day that the problem describes. They only track "on" time but don't provide a bigger picture of how that time is being spent or identify specific productivity sinks like social media or distractions, which are key to solving the user's problem.
+| Problems | Citation | Explanation |
+|---|---|---|
+| **4. Track a Good Day's Work** | **Low Perceived Productivity:** [1](https://lifehackmethod.com/blog/time-management-statistics/) | The average employee is only productive for 2 hours and 53 minutes a day, showing a significant gap between the time spent "working" and actual output. |
+| | **Lack of a System:** [1](https://lifehackmethod.com/blog/time-management-statistics/) | With 82% of people lacking a time management system, there is a massive market for a solution that helps people organize their work hours effectively. |
+| | **Digital Distractions:** [2](https://www.runn.io/blog/time-management-statistics) | Employees spend an average of 40-45 minutes per day on social media for non-work reasons, highlighting a key area where a tool could help redirect focus and boost productivity. |
+| | **The Cost of Context Switching:** [3](https://conclude.io/blog/context-switching-is-killing-your-productivity/) | The average digital worker toggles between applications nearly 1,200 times a day, with each switch costing valuable time and mental energy. |
+| | **The 23-Minute Rule:** [4](https://workjoy.co/blog/scientific-research-notifications-and-interruptions-negatively-affect-work) | After a distraction, it takes an average of 23 minutes to regain focus, demonstrating how even small interruptions can have a large, cumulative impact on overall productivity. |
+| | **Prevalence of "Productivity Guilt":** [5](https://roamerstherapy.com/what-is-productivity-guilt/) | Productivity guilt, or the feeling of not doing enough, is a common issue that often stems from a lack of clear standards for what constitutes a productive day. |
+| | **The Link to Mental Health:** [6](https://www.psychologytoday.com/us/basics/productivity/mental-health-and-productivity) | Poor mental health, particularly anxiety and depression, is directly linked to reduced productivity and is often a major factor in procrastination and the inability to focus. |
+| | **Digital Burnout:** [7](https://www.mcleanhospital.org/essential/digital-burnout) | Digital burnout, characterized by feelings of exhaustion and apathy from excessive screen time, is a growing problem that directly impacts a person's motivation and professional efficacy. |
+| | **Time Tracking Apps (e.g., My Hours, Timely):** (Comparable) [8](https://myhours.com/best-time-tracking-apps) | These apps are often too complex and business-focused, requiring manual input and discouraging individual use for personal productivity tracking. |
+| | **Pomodoro Timers:** (Comparable) | These apps don't offer a holistic view of a user's day, as they only track "on" time and fail to identify specific productivity sinks like social media use. |
+```
