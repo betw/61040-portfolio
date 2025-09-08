@@ -11,5 +11,7 @@ Some fun facts about me:
 
 
 # Table of Contents
-[Link to Assignment 1](assignments/assignment1)
-- [Link to Problem Selection](assignments/assignment1/problem_selection.md)
+[Assignment 1](assignments/assignment1)
+- [Problem Selection](assignments/assignment1/problem_selection.md)
+- [Evidence for Three Selected Problems](assignments/assignment1/threeproblems.md)
+- [Feature Selection for Selected Problems](assignments/assignment1/features.md)
