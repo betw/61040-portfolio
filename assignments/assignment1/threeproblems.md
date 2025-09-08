@@ -38,7 +38,7 @@
 | | **Qapital:** (Comparable) | This app's numerous features can overwhelm users, burying the core function of saving for a specific goal and making it less effective for those who want a simple solution. |
 | | **General Budgeting Apps (e.g., YNAB, Monarch Money):** (Comparable) | These apps require a high level of manual upkeep and user commitment, which is a significant barrier for people who struggle with long-term planning and want a more passive, streamlined approach. |
 | | **Lack of Specificity in Goal Setting:** [8](https://www.synchrony.com/blog/bank/5-reasons-why-people-miss-financial-goals) | A key reason for failure is the lack of "SMART" goals, where a goal like "saving for a vacation" is too vague and lacks the specific, measurable, and time-bound components needed for success. |
-| | **Complexity of Budgeting:** [9](https://finances.extension.wisc.edu/articles/cutting-back-and-keeping-up-when-money-is-tight/) | Many people find it difficult to stick to a budget because their spending changes frequently, making the process of tracking expenses tedious and discouraging. |
+| | **Complexity of Budgeting:** [9](https://www.cnbc.com/select/why-budgets-dont-work-for-people/) | Many people find it difficult to stick to a budget because their spending changes frequently, making the process of tracking expenses tedious and discouraging. |
 | | **Behavioral Finance Challenges:** [10](https://www.allgenfinancial.com/reasons-people-cant-retire/) | Behavioral finance principles like "procrastination" and the lack of a "written plan" are major reasons people fail to save, which points to the need for a solution that
 
 | Problem | Citation | Explanation |
