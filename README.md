@@ -12,3 +12,4 @@ Some fun facts about me:
 
 # Table of Contents
 [Link to Assignment 1](assignments/assignment1)
+- [Link to Problem Selection](assignments/assignment1/problem_selection.md)
