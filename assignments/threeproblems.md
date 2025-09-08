@@ -12,7 +12,7 @@
 | | **Psychologists & Mental Health Professionals** | Experts in mental health are related to this problem as it addresses feelings of anxiety and shame connected to productivity. The data and insights from this tool could be valuable for understanding and treating work-related stress, procrastination, and digital burnout. |
 
 ## Evidence supporting the existence of a real problem ##
-| Problems | Citation | Explanation |
+| Problem | Citation | Explanation |
 |---|---|---|
 | **1. Finding a Good Bank/Investment Account** | **The "Underbanked" Population:** [1](https://www.fdic.gov/household-survey) | 19 million U.S. households, or 14.2%, are underbanked, indicating that their current banking solutions are insufficient and they are likely seeking better options that fit their specific needs. |
 | | **Overwhelming Choice:** [1](https://www.fdic.gov/bank/statistical/stats/2023dec/all.html) | The existence of over 4,000 banks and thousands of credit unions creates a confusing landscape, making it hard for individuals to effectively compare and select an account. |
@@ -25,9 +25,9 @@
 | | **NerdWallet & Bankrate:** [8](https://www.nerdwallet.com) | These comparable sites offer broad lists but lack the personalization needed for a user to find a holistic fit, as they often rely on static rankings and reviews. |
 | | **Robo-Advisors & Investment Platforms:** [3](https://www.nerdwallet.com/best/investing/robo-advisors) | While personalized for investing, these platforms are not designed for general banking needs and require significant data input, failing to serve users who want a broader solution. |
 
-| Problems | Citation | Explanation |
+| Problem | Citation | Explanation |
 |---|---|---|
-| **3. Piggy Bank (Tracking Savings for Discretionary Expenses)** | **Saving is a Challenge:** [1](https://www.nerdwallet.com/article/finance/2025-financial-goals-midyear-check-in-report) | Nearly half of Americans who set financial goals are not on track to meet them, showing a widespread difficulty in consistently saving for their desired outcomes. |
+| **2. Piggy Bank (Tracking Savings for Discretionary Expenses)** | **Saving is a Challenge:** [1](https://www.nerdwallet.com/article/finance/2025-financial-goals-midyear-check-in-report) | Nearly half of Americans who set financial goals are not on track to meet them, showing a widespread difficulty in consistently saving for their desired outcomes. |
 | | **Generational Shift in Priorities:** [2](https://www.investopedia.com/millenialls-are-prioritizing-vacation-in-their-american-dream-11797045) | A large portion of a major consumer demographic (millennials) prioritizes saving for discretionary experiences like travel, making this a highly relevant problem to a large user base. |
 | | **Lack of Emergency Funds:** [3](https://newsroom.bankofamerica.com/content/newsroom/press-releases/2025/07/confronted-with-higher-living-costs--72--of-young-adults-take-ac.html) | Over half of Gen Z (55%) lack enough emergency savings to cover three months of expenses, indicating that saving for discretionary goals is often secondary or impossible due to financial insecurity. |
 | | **The "Soft Saving" Trend:** [4](https://site.nyit.edu/news/features/trends_in_2024_personal_finance) | A "soft saving" trend among Gen Z prioritizes immediate experiences over traditional savings, which highlights the need for a solution that makes saving for discretionary goals feel more immediate and less like a sacrifice. |
@@ -40,9 +40,9 @@
 | | **Complexity of Budgeting:** [9](https://finances.extension.wisc.edu/articles/cutting-back-and-keeping-up-when-money-is-tight/) | Many people find it difficult to stick to a budget because their spending changes frequently, making the process of tracking expenses tedious and discouraging. |
 | | **Behavioral Finance Challenges:** [10](https://www.allgenfinancial.com/reasons-people-cant-retire/) | Behavioral finance principles like "procrastination" and the lack of a "written plan" are major reasons people fail to save, which points to the need for a solution that
 
-| Problems | Citation | Explanation |
+| Problem | Citation | Explanation |
 |---|---|---|
-| **4. Track a Good Day's Work** | **Low Perceived Productivity:** [1](https://lifehackmethod.com/blog/time-management-statistics/) | The average employee is only productive for 2 hours and 53 minutes a day, showing a significant gap between the time spent "working" and actual output. |
+| **3. Track a Good Day's Work** | **Low Perceived Productivity:** [1](https://lifehackmethod.com/blog/time-management-statistics/) | The average employee is only productive for 2 hours and 53 minutes a day, showing a significant gap between the time spent "working" and actual output. |
 | | **Lack of a System:** [1](https://lifehackmethod.com/blog/time-management-statistics/) | With 82% of people lacking a time management system, there is a massive market for a solution that helps people organize their work hours effectively. |
 | | **Digital Distractions:** [2](https://www.runn.io/blog/time-management-statistics) | Employees spend an average of 40-45 minutes per day on social media for non-work reasons, highlighting a key area where a tool could help redirect focus and boost productivity. |
 | | **The Cost of Context Switching:** [3](https://conclude.io/blog/context-switching-is-killing-your-productivity/) | The average digital worker toggles between applications nearly 1,200 times a day, with each switch costing valuable time and mental energy. |
