@@ -1,3 +1,4 @@
+## Stakeholders in each problem ##
 | Problem | Stakeholders | How the Stakeholder is Related to the Problem |
 |---|---|---|
 | **Best Account for Me** | **Direct Users** | These are the individuals actively seeking a financial solution that fits their specific needs. They are the primary beneficiaries of a tool that can help them navigate the complex landscape of banking and investment accounts without compromising their personal data. |
@@ -10,7 +11,7 @@
 | | **Employers & Team Managers** | Businesses are stakeholders because employee productivity directly impacts their bottom line. They could use an anonymized version of the data to identify systemic issues, or recommend the tool to their employees to improve performance and well-being. |
 | | **Psychologists & Mental Health Professionals** | Experts in mental health are related to this problem as it addresses feelings of anxiety and shame connected to productivity. The data and insights from this tool could be valuable for understanding and treating work-related stress, procrastination, and digital burnout. |
 
-**Evidence:**
+## Evidence supporting the existence of a real problem ##
 | Problems | Citation | Explanation |
 |---|---|---|
 | **1. Finding a Good Bank/Investment Account** | **The "Underbanked" Population:** [1](https://www.fdic.gov/household-survey) | 19 million U.S. households, or 14.2%, are underbanked, indicating that their current banking solutions are insufficient and they are likely seeking better options that fit their specific needs. |
