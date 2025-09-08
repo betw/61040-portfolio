@@ -1,4 +1,4 @@
-# Assignment 1: Evidence collection (-[Feature Selection for Selected Problems](assignments/assignment1/features.md))
+# Assignment 1: Evidence collection 
 ## Stakeholders in each problem ##
 | Problem | Stakeholders | How the Stakeholder is Related to the Problem |
 |---|---|---|
@@ -53,4 +53,5 @@
 | | **Digital Burnout:** [7](https://www.mcleanhospital.org/essential/digital-burnout) | Digital burnout, characterized by feelings of exhaustion and apathy from excessive screen time, is a growing problem that directly impacts a person's motivation and professional efficacy. |
 | | **Time Tracking Apps (e.g., My Hours, Timely):** (Comparable) [8](https://myhours.com/best-time-tracking-apps) | These apps are often too complex and business-focused, requiring manual input and discouraging individual use for personal productivity tracking. |
 | | **Pomodoro Timers:** (Comparable) | These apps don't offer a holistic view of a user's day, as they only track "on" time and fail to identify specific productivity sinks like social media use. |
+([Feature Selection for Selected Problems](assignments/assignment1/features.md))
 
