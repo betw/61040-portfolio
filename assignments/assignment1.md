@@ -2,7 +2,7 @@
 
 ## Domains
 
-**Ten domains of personal interest were identified:**
+**Ten domains of interest:**
 
 1.  Training for Sports (Basketball)
 2.  Exploring Campus Life
@@ -32,7 +32,7 @@ I struggle with procrastination and productivity. My habit of taking a "little b
 
 ## Problems within Domains
 
-**Each of the three selected domains was broken down into a set of problems:**
+**Each of the three selected domains was broken down into a set of 3 problems:**
 
 ### 🍔 **Making Food**
 1.  Deciding what meals to eat
