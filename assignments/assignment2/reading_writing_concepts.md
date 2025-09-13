@@ -15,8 +15,8 @@
      Specifying User and Item types as generic parameters, identified with some unique code is more generalizable, in the sense it can be used to identify many different types of Users (organizations, individuals) and Items. Additionally, prices change for Items so a unique code will allow us to still identify some Item irrespective of its current price without additional changes.
    
 # Exercise 2: Extending a familiar concept
-  concept: PasswordAuthentication [User]\
-  purpose: limit access to known users\
+ \concept: PasswordAuthentication [User]\
+ \purpose: limit access to known users\
   principle: after a user registers with a username and a password,\
     they can authenticate with that same username and password\
     and be treated each time as the same user\
