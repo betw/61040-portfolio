@@ -15,32 +15,32 @@
      Specifying User and Item types as generic parameters, identified with some unique code is more generalizable, in the sense it can be used to identify many different types of Users (organizations, individuals) and Items. Additionally, prices change for Items so a unique code will allow us to still identify some Item irrespective of its current price without additional changes.
    
 # Exercise 2: Extending a familiar concept
-- concept: PasswordAuthentication [User]\
-- purpose: limit access to known users\
-- principle: after a user registers with a username and a password,\
-    they can authenticate with that same username and password\
-    and be treated each time as the same user\
-- state\
-  - a set of Users with:\
-       - a string Username\
-       - a string Password\
-       - a string Email\
-       - a verification Flag\
-  - a set of Tokens with:\
-       - a User\
-       - a number token\ 
-  actions\
-    register (username: String, password: String, email: String): (user: User, token: Number)\
-     requires: username doesn't already exist in the usernames associated with the set of Users\
-     effect: create and return a User, add the User and token to set of Tokens, and send the random number token to email\
-    authenticate (username: String, password: String): (user: User)\
-         requires: username exists in the set of Users' usernames and verification Flag associated with username is True\
-         effect: return the User with the matching username and password, Error if the password doesn't match the password associated\
-         with the username\
-    confirm (username: String, token: Number): (user: User)\
-     requires: the username is associated with some user in the set of Users\
-     effect: change the verification Flag associated with the username to true if token matches the token\
-               associated with a User with username in the set of Tokens\
+- concept: PasswordAuthentication [User]
+- purpose: limit access to known users
+- principle: after a user registers with a username and a password,
+    they can authenticate with that same username and password
+    and be treated each time as the same user
+- state
+  - a set of Users with:
+       - a string Username
+       - a string Password
+       - a string Email
+       - a verification Flag
+  - a set of Tokens with:
+       - a User
+       - a number token
+  actions
+    register (username: String, password: String, email: String): (user: User, token: Number)
+     requires: username doesn't already exist in the usernames associated with the set of Users
+     effect: create and return a User, add the User and token to set of Tokens, and send the random number token to email
+    authenticate (username: String, password: String): (user: User)
+         requires: username exists in the set of Users' usernames and verification Flag associated with username is True
+         effect: return the User with the matching username and password, Error if the password doesn't match the password associated
+         with the username
+    confirm (username: String, token: Number): (user: User)
+     requires: the username is associated with some user in the set of Users
+     effect: change the verification Flag associated with the username to true if token matches the token
+               associated with a User with username in the set of Tokens
 1. **Complete the definition of the concept state**. (above)
 2. **Write a requires/effects specification for each of the two actions**. (above)
 3. **What essential invariant must hold on the state? How is it preserved?**
