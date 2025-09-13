@@ -20,15 +20,15 @@
 * principle: after a user registers with a username and a password,\
     they can authenticate with that same username and password\
     and be treated each time as the same user\
-  state\
-    a set of Users with:\
-      a string Username\
-      a string Password\
-      a string Email\
-      a verification Flag\
-    a set of Tokens with:\
-      a User\
-     a number token\ 
+* state\
+  - a set of Users with:\
+       - a string Username\
+       - a string Password\
+       - a string Email\
+       - a verification Flag\
+  - a set of Tokens with:\
+       - a User\
+       - a number token\ 
   actions\
     register (username: String, password: String, email: String): (user: User, token: Number)\
      requires: username doesn't already exist in the usernames associated with the set of Users\
