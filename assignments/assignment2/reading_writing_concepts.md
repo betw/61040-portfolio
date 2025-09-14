@@ -29,17 +29,17 @@
   - a set of Tokens with:
        - a User
        - a number token
-  actions
-    register (username: String, password: String, email: String): (user: User, token: Number)
-     requires: username doesn't already exist in the usernames associated with the set of Users
-     effect: create and return a User, add the User and token to set of Tokens, and send the random number token to email
-    authenticate (username: String, password: String): (user: User)
-         requires: username exists in the set of Users' usernames and verification Flag associated with username is True
-         effect: return the User with the matching username and password, Error if the password doesn't match the password associated
+- actions
+  - register (username: String, password: String, email: String): (user: User, token: Number)
+       - requires: username doesn't already exist in the usernames associated with the set of Users
+       - effect: create and return a User, add the User and token to set of Tokens, and send the random number token to email
+  - authenticate (username: String, password: String): (user: User)
+       - requires: username exists in the set of Users' usernames and verification Flag associated with username is True
+       - effect: return the User with the matching username and password, Error if the password doesn't match the password associated
          with the username
-    confirm (username: String, token: Number): (user: User)
-     requires: the username is associated with some user in the set of Users
-     effect: change the verification Flag associated with the username to true if token matches the token
+  - confirm (username: String, token: Number): (user: User)
+       - requires: the username is associated with some user in the set of Users
+       - effect: change the verification Flag associated with the username to true if token matches the token
                associated with a User with username in the set of Tokens
 1. **Complete the definition of the concept state**. (above)
 2. **Write a requires/effects specification for each of the two actions**. (above)
@@ -53,46 +53,46 @@
 might change the GitHub documentation to explain this**
 Note: PasswordAccessToken differes from PasswordAuthentication in their purposes, as the former is used to control access on the repository-level and the latter is used to register and authenticate a user
 on a higher-level (above repository-level). The Github documentation can more clearly state that the PasswordAccessToken is for controlling the scope of access a token has **within** a user's github page.
-concept: PersonalAccessToken [Repository]
-purpose: allow for repository-level access control
-principle: given a set of created repositories, a user creates a token
+- concept: PersonalAccessToken [Repository]
+- purpose: allow for repository-level access control
+- principle: given a set of created repositories, a user creates a token
            that gives it access to some subset of the repostories. Then,
            a third-party uses a created token to access those
            repositories.
-state:
-     a set of Tokens with:
-          a string name
-          a string token
-     a set of AccessRepositories with:
-          a Token token
-          a set of repositories
-actions:
-     create(name: string): token: Token
-          requires: name is unique among token names
-          effect: create and add a random, unique token to Tokens and AccessRepositories and the associated set of repositories are public repositories
-     addRepository(token: Token, repository: Repository)
-          requires: token exists
-          effect: add the respository to set of repositories associated with token token in set of AccessRepositories
+- state:
+     - a set of Tokens with:
+          - a string name
+          - a string token
+     - a set of AccessRepositories with:
+          - a Token token
+          - a set of repositories
+- actions:
+     - create(name: string): token: Token
+          - requires: name is unique among token names
+          - effect: create and add a random, unique token to Tokens and AccessRepositories and the associated set of repositories are public repositories
+     - addRepository(token: Token, repository: Repository)
+          - requires: token exists
+          - effect: add the respository to set of repositories associated with token token in set of AccessRepositories
 
 # Exercise 4: Defining familiar Concepts
 
-concept: TrackBillableHours
-purpose:
-principle:
-state:
-actions:
-Electronic Boarding Pass
-concept: MaintiningElectronicBoardPasses
-purpose:
-principle:
-state:
-actions:
-Time-Based One-Time Password (TOTP)
-concept: TOTPAuth
-purpose: reduce the risk of malicious actors authenticating themselves
-principle: register multiple devices to send a TOTP to when logging in
-state:
-actions:
+- concept: TrackBillableHours
+- purpose:
+- principle:
+- state:
+- actions:
+
+- concept: MaintiningElectronicBoardPasses
+- purpose:
+- principle:
+- state:
+- actions:
+
+- concept: TOTPAuth
+- purpose: reduce the risk of malicious actors authenticating themselves
+- principle: register multiple devices to send a TOTP to when logging in
+- state:
+- actions:
      
      
    
