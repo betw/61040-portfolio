@@ -76,23 +76,70 @@ on a higher-level (above repository-level). The Github documentation can more cl
 
 # Exercise 4: Defining familiar Concepts
 
-- concept: TrackBillableHours
-- purpose:
-- principle:
+- concept: TrackBillableHours [Date]
+- purpose: track billable hours
+- principle: an employee marks the beginning of a session by selecting a project
+             and entering a string describing the work to be done, and then marks
+             the end of the session, the time between those actions and the project name are logged 
 - state:
+       - a set of Sessions with:
+            - a string name
+            - a Date date
+            - a number time
+            - a activate flag
+     
 - actions:
+        - beginSession(projectName: string, todaysDate: Date): Session
+            - effect: if projectName and todaysDate matches with one of the sessions' name or date then
+                 modify the activate flag to True. Otherwise, create, return, add a new Session.
+                 The time associated with the Session will be incremented second by second, in the background.
+        - resetSession(session: Session)
+            - requires: session exists
+            - effect: sets the time associated with the session to 0 and activate flag to False
+        - endSession(session: Session)
+            - requires: session exists and session 's activate flag is True
+            - effect: stops the time associated with session from incementing and sets the activate flag to False
+          
+**Note**: resetSession is used for when someone forgots to end a session. The two stakeholders are the company and the client being billed, resetSession will make the company pay the cost by not charging the client for an erroneous number of hours.
 
-- concept: MaintiningElectronicBoardPasses
-- purpose:
-- principle:
+- concept: MakingElectronicBoardPasses [Time, Date, Gate]
+- purpose: create and issue a digital version of a boarding pass that keeps track of
+            a passanger's flight details
+- principle: create a boarding pass by entering the departure and arrival gates at airports,
+            the carrier code, and departure and arrival times for the flight. Then
+            issue the boarding pass to a passenger. 
 - state:
+       - a set of Passes with:
+            - a departure time Time and date Date
+            - an arrival time Time and date Date
+            - a Gate departureGate
+            - a Gate arrivalGate
+            - a string carrier
+       - a set of Passengers with:
+            - a string name
+            - a set of Passes
+            
 - actions:
+       - createPass(departureTime: Time, departureDate: Date, arrivalTime: Time, arrivalDate: Date, departureGate: Gate,
+                      arrivalGate: Gate, carrier: String): Pass
+            - effect: create and add a Pass with departure and arrival time and dates, a departure and arrival gate and
+                      the flight carrier code representing by the string carrier
+       - issuePass(name: String, pass: Pass): Passenger
+            - effect: create and addd a new Passenger with teh given name and pass
+**Note**: The Gate in "[Time, Date, Gate]" contains: a string gate, and a string airport. I didn't include actions that can modify an state because boarding passes are for viewing purposes; you can't cancel or change a flight from/using a boarding pass.
 
-- concept: TOTPAuth
+- concept: Time-Based-One-Time-PasswordAuth
 - purpose: reduce the risk of malicious actors authenticating themselves
-- principle: register multiple devices to send a TOTP to when logging in
+- principle: register multiple devices to send a TOTP to when logging into an application
+             and when a user logs into some application, the authorized devices (not the current one being used)
+             will receive the TOTP, and the user will enter it into the applicaiton login when prompted
 - state:
+  
 - actions:
+       - register(user: Usesr, device: Device, app: string)
+       - login(username: string, password: string): User
+       - logout(user: User)
+       
      
      
    
