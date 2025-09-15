@@ -134,17 +134,17 @@ Note: The Gate in "[Time, Date, Gate]" contains: a string gate, and a string air
              and when a user logs into some application, the authorized devices (not the current one being used)
              will receive the TOTP, and the user will enter it into the applicaiton login when prompted
 - state:
-       - a set of Users with:
-        - a string username
-        - a string password
-       - a set of TwoAuthUsers:
-        - a User user
-        - a set of registeredDevices
-       - a set of RegisteredDevices with:
-        - a string device
-        - a set of Apps
-       - a set of Apps with:
-        - a string name
+  - a set of Users with:
+   - a string username
+   - a string password
+  - a set of TwoAuthUsers:
+   - a User user
+   - a set of registeredDevices
+  - a set of RegisteredDevices with:
+   - a string device
+   - a set of Apps
+  - a set of Apps with:
+   - a string name
 - actions:
   - registerDeviceForApp(user: Usesr, device: string, appName: string)
      - requires: user exists
