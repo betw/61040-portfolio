@@ -143,7 +143,7 @@
         * **effect**: create a new TwoAuthUser with User user and registeredDevice with device and appName
     * `registerUser(username: String, password: String): user: User`
         * **requires**: username doesn't already exist in the usernames associated with the set of Users
-        * **effect**: create and return a User
+        * **effect**: create and return a User with the given username and password
     * `login(username: string, password: string, device: string): token: number`
         * **requires**: a User exists with username username and password Password and device is the name of the current device being used
         * **effect**: if the user is a User in TwoAuthUsers then send a random token to the set of registeredDevices, not including the device being used to login
