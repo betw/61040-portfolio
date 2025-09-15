@@ -100,7 +100,7 @@ on a higher-level (above repository-level). The Github documentation can more cl
             - requires: session exists and session 's activate flag is True
             - effect: stops the time associated with session from incementing and sets the activate flag to False
           
-**Note**: resetSession is used for when someone forgots to end a session. The two stakeholders are the company and the client being billed, resetSession will make the company pay the cost by not charging the client for an erroneous number of hours.
+Note: resetSession is used for when someone forgots to end a session. The two stakeholders are the company and the client being billed, resetSession will make the company pay the cost by not charging the client for an erroneous number of hours.
 
 - concept: MakingElectronicBoardPasses [Time, Date, Gate]
 - purpose: create and issue a digital version of a boarding pass that keeps track of
@@ -126,7 +126,7 @@ on a higher-level (above repository-level). The Github documentation can more cl
                       the flight carrier code representing by the string carrier
        - issuePass(name: String, pass: Pass): Passenger
             - effect: create and addd a new Passenger with teh given name and pass
-**Note**: The Gate in "[Time, Date, Gate]" contains: a string gate, and a string airport. I didn't include actions that can modify an state because boarding passes are for viewing purposes; you can't cancel or change a flight from/using a boarding pass.
+Note: The Gate in "[Time, Date, Gate]" contains: a string gate, and a string airport. I didn't include actions that can modify an state because boarding passes are for viewing purposes; you can't cancel or change a flight from/using a boarding pass.
 
 - concept: Time-Based-One-Time-PasswordAuth
 - purpose: reduce the risk of malicious actors authenticating themselves
