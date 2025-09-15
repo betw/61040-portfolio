@@ -134,6 +134,10 @@
     * a set of TwoAuthUsers:
         * a User user
         * a set of registeredDevices
+    * a set of Tokens
+        * a User user
+        * a string appName
+        * a number token
     * a set of RegisteredDevices with:
         * a string device
         * a set of string Apps
@@ -144,8 +148,12 @@
     * `registerUser(username: String, password: String): user: User`
         * **requires**: username doesn't already exist in the usernames associated with the set of Users
         * **effect**: create and return a User with the given username and password
-    * `login(username: string, password: string, device: string): token: number`
+    * `login(username: string, password: string, device: string, appName: string): (user: User)`
         * **requires**: a User exists with username username and password Password and device is the name of the current device being used
-        * **effect**: if the user is a User in TwoAuthUsers then send a random token to the set of registeredDevices, not including the device being used to login
+        * **effect**: if the user is a User in TwoAuthUsers then send a random token to the set of registeredDevices (not including the device being used to login)
+                      and use the token, User user, and appName to make Token
+    * `confrim(user: User, token: number)`
+        * **requires**: user exists and token matches the number associated with the user in the set of Tokens
+        * **effect**: authorize the user to access the appName associated with the token number 
 
 **Note**: If a malicious actor gains access to the username and password and one of the devices in registeredDevices, then this method fails to protect the user. It only serves as a another layer of protection, but DOES not eliminate the risk described.
