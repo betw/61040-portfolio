@@ -82,7 +82,7 @@ on a higher-level (above repository-level). The Github documentation can more cl
              and entering a string describing the work to be done, and then marks
              the end of the session, the time between those actions and the project name are logged 
 - state:
-       - a set of Sessions with:
+     - a set of Sessions with:
             - a string name
             - a Date date
             - a number time
