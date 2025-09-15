@@ -120,12 +120,12 @@ Note: resetSession is used for when someone forgots to end a session. The two st
        - a set of Passes
             
 - actions:
-       - createPass(departureTime: Time, departureDate: Date, arrivalTime: Time, arrivalDate: Date, departureGate: Gate,
+  - createPass(departureTime: Time, departureDate: Date, arrivalTime: Time, arrivalDate: Date, departureGate: Gate,
                       arrivalGate: Gate, carrier: String): Pass
-         - effect: create and add a Pass with departure and arrival time and dates, a departure and arrival gate and
+    - effect: create and add a Pass with departure and arrival time and dates, a departure and arrival gate and
                       the flight carrier code representing by the string carrier
-       - issuePass(name: String, pass: Pass): Passenger
-         - effect: create and addd a new Passenger with teh given name and pass
+ - issuePass(name: String, pass: Pass): Passenger
+    - effect: create and addd a new Passenger with teh given name and pass
 Note: The Gate in "[Time, Date, Gate]" contains: a string gate, and a string airport. I didn't include actions that can modify an state because boarding passes are for viewing purposes; you can't cancel or change a flight from/using a boarding pass.
 
 - concept: Time-Based-One-Time-PasswordAuth
