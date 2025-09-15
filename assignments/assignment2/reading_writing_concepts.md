@@ -67,12 +67,12 @@ on a higher-level (above repository-level). The Github documentation can more cl
       - a Token token
       - a set of repositories
 - actions:
-     - create(name: string): token: Token
-      - requires: name is unique among token names
-      - effect: create and add a random, unique token to Tokens and AccessRepositories and the associated set of repositories are public repositories
-    - addRepository(token: Token, repository: Repository)
-      - requires: token exists
-      - effect: add the respository to set of repositories associated with token token in set of AccessRepositories
+  - create(name: string): token: Token
+    - requires: name is unique among token names
+    - effect: create and add a random, unique token to Tokens and AccessRepositories and the associated set of repositories are public repositories
+  - addRepository(token: Token, repository: Repository)
+    - requires: token exists
+    - effect: add the respository to set of repositories associated with token token in set of AccessRepositories
 
 # Exercise 4: Defining familiar Concepts
 
@@ -89,19 +89,19 @@ on a higher-level (above repository-level). The Github documentation can more cl
         - a activate flag
      
 - actions:
-        - beginSession(projectName: string, todaysDate: Date): Session
-             - effect: if projectName and todaysDate matches with one of the sessions' name or date then
-                 modify the activate flag to True. Otherwise, create, return, add a new Session.
-                 The time associated with the Session will be incremented second by second, in the background.
-        - resetSession(session: Session)
-            - requires: session exists
-            - effect: sets the time associated with the session to 0 and activate flag to False
-        - endSession(session: Session)
-            - requires: session exists and session 's activate flag is True
-            - effect: stops the time associated with session from incementing and sets the activate flag to False
+   - beginSession(projectName: string, todaysDate: Date): Session
+     - effect: if projectName and todaysDate matches with one of the sessions' name or date then
+            modify the activate flag to True. Otherwise, create, return, add a new Session.
+            The time associated with the Session will be incremented second by second, in the background.
+   - resetSession(session: Session)
+     - requires: session exists
+     - effect: sets the time associated with the session to 0 and activate flag to False
+   - endSession(session: Session)
+     - requires: session exists and session 's activate flag is True
+     - effect: stops the time associated with session from incementing and sets the activate flag to False
           
 Note: resetSession is used for when someone forgots to end a session. The two stakeholders are the company and the client being billed, resetSession will make the company pay the cost by not charging the client for an erroneous number of hours.
-
+---
 - concept: MakingElectronicBoardPasses [Time, Date, Gate]
 - purpose: create and issue a digital version of a boarding pass that keeps track of
             a passanger's flight details
@@ -109,15 +109,15 @@ Note: resetSession is used for when someone forgots to end a session. The two st
             the carrier code, and departure and arrival times for the flight. Then
             issue the boarding pass to a passenger. 
 - state:
-       - a set of Passes with:
-         - a departure time Time and date Date
-         - an arrival time Time and date Date
-         - a Gate departureGate
-         - a Gate arrivalGate
+  - a set of Passes with:
+    - a departure time Time and date Date
+    - an arrival time Time and date Date
+    - a Gate departureGate
+    - a Gate arrivalGate
   - a string carrier
-       - a set of Passengers with:
-       - a string name
-       - a set of Passes
+    - a set of Passengers with:
+    - a string name
+    - a set of Passes
             
 - actions:
   - createPass(departureTime: Time, departureDate: Date, arrivalTime: Time, arrivalDate: Date, departureGate: Gate,
@@ -127,7 +127,7 @@ Note: resetSession is used for when someone forgots to end a session. The two st
  - issuePass(name: String, pass: Pass): Passenger
     - effect: create and addd a new Passenger with teh given name and pass
 Note: The Gate in "[Time, Date, Gate]" contains: a string gate, and a string airport. I didn't include actions that can modify an state because boarding passes are for viewing purposes; you can't cancel or change a flight from/using a boarding pass.
-
+---
 - concept: Time-Based-One-Time-PasswordAuth
 - purpose: reduce the risk of malicious actors authenticating themselves
 - principle: register multiple devices to send a TOTP to when logging into an application
