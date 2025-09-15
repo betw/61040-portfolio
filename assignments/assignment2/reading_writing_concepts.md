@@ -144,6 +144,7 @@
     * `registerUser(username: String, password: String): user: User`
         * **requires**: username doesn't already exist in the usernames associated with the set of Users
         * **effect**: create and return a User
-    * `login(user: User, device: string): token: number`
-        * **requires**: user exists and device is name of the current device being used
-        * **effect**: if user in TwoAuthUsers then send a random token to the set of registeredDevices, not including the device being used to login
+    * `login(username: string, password: string, device: string): token: number`
+        * **requires**: a User exists with username username and password Password and device is the name of the current device being used
+        * **effect**: if the user is a User in TwoAuthUsers then send a random token to the set of registeredDevices, not including the device being used to login
+**Note**: If a malicious actor gains access to the username and password and one of the devices in registeredDevices, then this method fails to protect the user. It only serves as a another layer of protection, but DOES not eliminate the risk described.
