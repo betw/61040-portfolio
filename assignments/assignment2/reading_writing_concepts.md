@@ -136,9 +136,7 @@
         * a set of registeredDevices
     * a set of RegisteredDevices with:
         * a string device
-        * a set of Apps
-    * a set of Apps with:
-        * a string name
+        * a set of string Apps
 * **actions**:
     * `registerDeviceForApp(user: User, device: string, appName: string)`
         * **requires**: user exists
