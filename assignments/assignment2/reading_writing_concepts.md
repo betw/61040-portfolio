@@ -70,7 +70,7 @@ on a higher-level (above repository-level). The Github documentation can more cl
      - create(name: string): token: Token
       - requires: name is unique among token names
       - effect: create and add a random, unique token to Tokens and AccessRepositories and the associated set of repositories are public repositories
-     - addRepository(token: Token, repository: Repository)
+    - addRepository(token: Token, repository: Repository)
       - requires: token exists
       - effect: add the respository to set of repositories associated with token token in set of AccessRepositories
 
@@ -134,12 +134,26 @@ Note: The Gate in "[Time, Date, Gate]" contains: a string gate, and a string air
              and when a user logs into some application, the authorized devices (not the current one being used)
              will receive the TOTP, and the user will enter it into the applicaiton login when prompted
 - state:
-  
+       - a set of Users with:
+            - a string username
+            - a string password
+       - a set of TwoAuthUsers:
+            - a User user
+            - a set of registeredDevices
+       - a set of RegisteredDevices with:
+            - a string device
+            - a set of Apps
+       - a set of Apps with:
+            - a string name
 - actions:
-  - register(user: Usesr, device: Device, app: string)
-  - login(username: string, password: string): User
-  - logout(user: User)
+  - registerDeviceForApp(user: Usesr, device: string, appName: string)
+         - requires: user exists
+         - effect: create a new TwoAuthUser with User user and registeredDevice with device and appName
+  - registerUser(username: String, password: String): user: User
+     - requires: username doesn't already exist in the usernames associated with the set of Users
+     - effect: create and return a User
+  - login(user: User, device: string): token: number
+       - requires: user exists and device is name of the current device being used
+       - effect: if user in TwoAuthUsers then send a random token to the set of registeredDevices, not including
+             the device being used to login
        
-     
-     
-   
