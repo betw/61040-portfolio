@@ -96,6 +96,7 @@
     * `endSession(session: Session)`
         * **requires**: session exists and session 's activate flag is True
         * **effect**: stops the time associated with session from incrementing and sets the activate flag to False
+
 **Note**: resetSession is used for when someone forgets to end a session. The two stakeholders are the company and the client being billed, resetSession will make the company pay the cost by not charging the client for an erroneous number of hours.
 
 ---
