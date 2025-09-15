@@ -119,6 +119,7 @@
         * **effect**: create and add a Pass with departure and arrival time and dates, a departure and arrival gate and the flight carrier code representing by the string carrier
     * `issuePass(name: String, pass: Pass): Passenger`
         * **effect**: create and add a new Passenger with the given name and pass
+
 **Note**: The Gate in "[Time, Date, Gate]" contains: a string gate, and a string airport. I didn't include actions that can modify a state because boarding passes are for viewing purposes; you can't cancel or change a flight from/using a boarding pass.
 
 ---
@@ -148,4 +149,5 @@
     * `login(username: string, password: string, device: string): token: number`
         * **requires**: a User exists with username username and password Password and device is the name of the current device being used
         * **effect**: if the user is a User in TwoAuthUsers then send a random token to the set of registeredDevices, not including the device being used to login
+
 **Note**: If a malicious actor gains access to the username and password and one of the devices in registeredDevices, then this method fails to protect the user. It only serves as a another layer of protection, but DOES not eliminate the risk described.
