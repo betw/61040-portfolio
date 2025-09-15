@@ -78,26 +78,28 @@
 
 ### Exercise 4: Defining Familiar Concepts
 
-* **concept**: TrackBillableHours [Date]
+* **concept**: TrackBillableHours
 * **purpose**: track billable hours
 * **principle**: an employee marks the beginning of a session by selecting a project and entering a string describing the work to be done, and then marks the end of the session, the time between those actions and the project name are logged
 * **state**:
     * a set of Sessions with:
         * a string name
-        * a Date date
-        * a number time
-        * a activate flag
+        * a string note
+        * a number startTime
+        * a number endTime
+        * an activate flag
 * **actions**:
-    * `beginSession(projectName: string, todaysDate: Date): Session`
-        * **effect**: if projectName and todaysDate matches with one of the sessions' name or date then modify the activate flag to True. Otherwise, create, return, add a new Session. The time associated with the Session will be incremented second by second, in the background.
-    * `resetSession(session: Session)`
-        * **requires**: session exists
-        * **effect**: sets the time associated with the session to 0 and activate flag to False
-    * `endSession(session: Session)`
-        * **requires**: session exists and session 's activate flag is True
-        * **effect**: stops the time associated with session from incrementing and sets the activate flag to False
+    * `beginSession(projectName: string, note: string): Session`
+        * **effect**: if projectName and note matches with one of the existing sessions' project names and note then modify the activate flag to True and record
+          the startTime. Otherwise, create, return, and add a new Session.
+    * `cancelSession(projectName: string, note: string)`
+        * **requires**: session exists with projectName and note note
+        * **effect**: deletes the session
+    * `endSession(projectName: string, note: string)`
+        * **requires**: session exists with projectName and note and session 's activate flag is True
+        * **effect**: records the endTime and sets the activate flag to False
 
-**Note**: resetSession is used for when someone forgets to end a session. The two stakeholders are the company and the client being billed, resetSession will make the company pay the cost by not charging the client for an erroneous number of hours.
+**Note**: cancelSession is used for when someone forgets to end a session. The two stakeholders are the company and the client being billed, resetSession will make the company pay the cost by not charging the client for an erroneous number of hours.
 
 ---
 
@@ -125,7 +127,7 @@
 ---
 
 * **concept**: Time-Based-One-Time-PasswordAuth
-* **purpose**: reduce the risk of malicious actors authenticating themselves
+* **purpose**: provide an additional layer of authentication to verify a user's identity
 * **principle**: register multiple devices to send a TOTP to when logging into an application and when a user logs into some application, the authorized devices (not the current one being used) will receive the TOTP, and the user will enter it into the application login when prompted
 * **state**:
     * a set of Users with:
@@ -148,7 +150,7 @@
     * `registerUser(username: String, password: String): user: User`
         * **requires**: username doesn't already exist in the usernames associated with the set of Users
         * **effect**: create and return a User with the given username and password
-    * `login(username: string, password: string, device: string, appName: string): (user: User)`
+    * `login(username: string, password: string, device: string, appName: string): (token: number)`
         * **requires**: a User exists with username username and password Password and device is the name of the current device being used
         * **effect**: if the user is a User in TwoAuthUsers then send a random token to the set of registeredDevices (not including the device being used to login)
                       and use the token, User user, and appName to make Token
