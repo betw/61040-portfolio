@@ -22,24 +22,24 @@
     and be treated each time as the same user
 - state
   - a set of Users with:
-       - a string Username
-       - a string Password
-       - a string Email
-       - a verification Flag
+     - a string Username
+     - a string Password
+     - a string Email
+     - a verification Flag
   - a set of Tokens with:
-       - a User
-       - a number token
+      - a User
+      - a number token
 - actions
   - register (username: String, password: String, email: String): (user: User, token: Number)
-       - requires: username doesn't already exist in the usernames associated with the set of Users
-       - effect: create and return a User, add the User and token to set of Tokens, and send the random number token to email
+     - requires: username doesn't already exist in the usernames associated with the set of Users
+     - effect: create and return a User, add the User and token to set of Tokens, and send the random number token to email
   - authenticate (username: String, password: String): (user: User)
-       - requires: username exists in the set of Users' usernames and verification Flag associated with username is True
-       - effect: return the User with the matching username and password, Error if the password doesn't match the password associated
+     - requires: username exists in the set of Users' usernames and verification Flag associated with username is True
+     - effect: return the User with the matching username and password, Error if the password doesn't match the password associated
          with the username
   - confirm (username: String, token: Number): (user: User)
-       - requires: the username is associated with some user in the set of Users
-       - effect: change the verification Flag associated with the username to true if token matches the token
+     - requires: the username is associated with some user in the set of Users
+     - effect: change the verification Flag associated with the username to true if token matches the token
                associated with a User with username in the set of Tokens
 1. **Complete the definition of the concept state**. (above)
 2. **Write a requires/effects specification for each of the two actions**. (above)
@@ -61,18 +61,18 @@ on a higher-level (above repository-level). The Github documentation can more cl
            repositories.
 - state:
      - a set of Tokens with:
-          - a string name
-          - a string token
+      - a string name
+      - a string token
      - a set of AccessRepositories with:
-          - a Token token
-          - a set of repositories
+      - a Token token
+      - a set of repositories
 - actions:
      - create(name: string): token: Token
-          - requires: name is unique among token names
-          - effect: create and add a random, unique token to Tokens and AccessRepositories and the associated set of repositories are public repositories
+      - requires: name is unique among token names
+      - effect: create and add a random, unique token to Tokens and AccessRepositories and the associated set of repositories are public repositories
      - addRepository(token: Token, repository: Repository)
-          - requires: token exists
-          - effect: add the respository to set of repositories associated with token token in set of AccessRepositories
+      - requires: token exists
+      - effect: add the respository to set of repositories associated with token token in set of AccessRepositories
 
 # Exercise 4: Defining familiar Concepts
 
@@ -83,14 +83,14 @@ on a higher-level (above repository-level). The Github documentation can more cl
              the end of the session, the time between those actions and the project name are logged 
 - state:
      - a set of Sessions with:
-            - a string name
-            - a Date date
-            - a number time
-            - a activate flag
+        - a string name
+        - a Date date
+        - a number time
+        - a activate flag
      
 - actions:
         - beginSession(projectName: string, todaysDate: Date): Session
-            - effect: if projectName and todaysDate matches with one of the sessions' name or date then
+             - effect: if projectName and todaysDate matches with one of the sessions' name or date then
                  modify the activate flag to True. Otherwise, create, return, add a new Session.
                  The time associated with the Session will be incremented second by second, in the background.
         - resetSession(session: Session)
@@ -110,22 +110,22 @@ Note: resetSession is used for when someone forgots to end a session. The two st
             issue the boarding pass to a passenger. 
 - state:
        - a set of Passes with:
-            - a departure time Time and date Date
-            - an arrival time Time and date Date
-            - a Gate departureGate
-            - a Gate arrivalGate
-            - a string carrier
+         - a departure time Time and date Date
+         - an arrival time Time and date Date
+         - a Gate departureGate
+         - a Gate arrivalGate
+  - a string carrier
        - a set of Passengers with:
-            - a string name
-            - a set of Passes
+       - a string name
+       - a set of Passes
             
 - actions:
        - createPass(departureTime: Time, departureDate: Date, arrivalTime: Time, arrivalDate: Date, departureGate: Gate,
                       arrivalGate: Gate, carrier: String): Pass
-            - effect: create and add a Pass with departure and arrival time and dates, a departure and arrival gate and
+         - effect: create and add a Pass with departure and arrival time and dates, a departure and arrival gate and
                       the flight carrier code representing by the string carrier
        - issuePass(name: String, pass: Pass): Passenger
-            - effect: create and addd a new Passenger with teh given name and pass
+         - effect: create and addd a new Passenger with teh given name and pass
 Note: The Gate in "[Time, Date, Gate]" contains: a string gate, and a string airport. I didn't include actions that can modify an state because boarding passes are for viewing purposes; you can't cancel or change a flight from/using a boarding pass.
 
 - concept: Time-Based-One-Time-PasswordAuth
@@ -136,9 +136,9 @@ Note: The Gate in "[Time, Date, Gate]" contains: a string gate, and a string air
 - state:
   
 - actions:
-       - register(user: Usesr, device: Device, app: string)
-       - login(username: string, password: string): User
-       - logout(user: User)
+  - register(user: Usesr, device: Device, app: string)
+  - login(username: string, password: string): User
+  - logout(user: User)
        
      
      
