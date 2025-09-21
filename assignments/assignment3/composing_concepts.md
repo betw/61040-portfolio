@@ -4,6 +4,7 @@ Here are the questions formatted in markdown.
 (???) The **NonceGeneration** concept ensures that the short strings it generates will be unique and not result in conflicts. What are the contexts for, and what will a context end up being in the URL shortening app?
 
 Answer: A context in the URL shortening app will be the targetURL for which mutliple shortURLs can link to, thus requiring targetURL to have a set of unique strings to allocate to the shortURLs.
+
 ---
 
 ### Storing Used Strings
