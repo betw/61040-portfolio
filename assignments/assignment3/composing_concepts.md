@@ -53,6 +53,81 @@ sync setExpiry
 ```
 sync expireResource
   when ExpiringResource.expireResource(): resource
-  then 
+  then UrlShortening.delete(shortUrl: resource)
 
 ```
+
+Design a couple of additional concepts to realize this extension, and write them out in full (but including only the essential actions and state).
+```
+concept: countAnalytics [User]
+purpose: allow a user to view analytics about some service usage
+principle: for each access to the resource, the count associted with the resource
+increases by one
+state:
+   a set of Analytics with
+      a User user
+      a set of CountAccess
+   a set of UserData with
+      a User user
+      a set of Associations
+   a set of Associations with
+      a String base
+      a set of Strings derivative
+   a set of CountAccess with
+      a String base
+      a String derivative
+      a number count
+actions:
+   addString(user: User, base: String, derivative: String)
+      requires: base and derivative are unique among users
+      effect: add derivative to set associated with base belonging to user
+   incrementAccessCount(derivative: String)
+      requires: derivative is associated with some base belonging to some user
+      effect: increments the count associted with derivative belonging to some user
+   accessCounts(user: User, base: String): count: number
+      requires: base exists in Associations belonging to user
+      effect: return the accumulated counts belonging to each derivative associated with base
+
+concept: userAuth [CountAccess, Association]
+purpose: allow users to signup and authenticate themselves
+
+state:
+   a set of Users with
+      a String username
+      a String password
+actions:
+   register(username: String, password: String): User
+      requires: username not already in use
+      effect: add a new User with username username and password password
+   authenticate(username: String, password: String): User
+      requires: username exists and password matches
+      effect: return the User with that username and password
+```
+Specify three essential synchronizations with your new concepts: one that happens when shortenings are created; one when shortenings are translated to targets; and one when a user examines analytics.
+```
+sync 
+   when
+       Request.registerUser(username, password)
+       Request.register(shortUrlSuffix, shortUrlBase, targetUrl)
+       UrlShortening.register(shortUrlSuffix, shortUrlBase, targetUrl): shortUrl
+   then
+      userAuth.register(username, password): User
+      countAnalytics.addString(user, targetUrl, shortUrl)
+
+sync
+   when UrlShortening.lookup(shortUrl): targetUrl
+   then countAnalytics.incrementAccessCount(shortUrl)
+
+sync
+   when Request.examineAnalytics(username, password, targetUrl)
+   then
+      userAuth.authenticate(username, password): user
+      countAnalytics.accessCounts(user, base: targetUrl): count
+        
+```
+As a way to assess the modularity of your solution, consider each of the following feature requests, to be included along with analytics. For each one, outline how it might be realized (eg, by changing or adding a concept or a sync), or argue that the feature would be undesirable and should not be included:
+Allowing users to choose their own short URLs;
+Using the “word as nonce” strategy to generate more memorable short URLs;
+Including the target URL in analytics, so that lookups of different short URLs can be grouped together when they refer to the same target URL;
+Generate short URLs that are not easily guessed;
+Supporting reporting of analytics to creators of short URLs who have not registered as user.
