@@ -127,7 +127,15 @@ sync
 ```
 As a way to assess the modularity of your solution, consider each of the following feature requests, to be included along with analytics. For each one, outline how it might be realized (eg, by changing or adding a concept or a sync), or argue that the feature would be undesirable and should not be included:
 Allowing users to choose their own short URLs;
-Using the “word as nonce” strategy to generate more memorable short URLs;
+
+Using the “word as nonce” strategy to generate more memorable short URLs; 
+One way to incorporate this change is to add a state to the NonceGeneration concept that includes the most common dictionary words and generate only selects words from that static state.
+
 Including the target URL in analytics, so that lookups of different short URLs can be grouped together when they refer to the same target URL;
+I have already included this in my concepts.
+
 Generate short URLs that are not easily guessed;
+One can change the generate action in **NonceGeneration** to create a random string, including letters, numbers, and other symbols.
+
 Supporting reporting of analytics to creators of short URLs who have not registered as user.
+This feature should NOT be included because without identification, anyone can view the analytics of the shortUrl's creator, which might be undesirable as potential competitors might glean some insight from it.
