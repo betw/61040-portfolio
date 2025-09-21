@@ -17,7 +17,7 @@ Answer: **NonceGeneration** must store sets of used strings because the purpose 
 ### Words as Nonces
 One option for nonce generation is to use common dictionary words (in the style of yellkey.com, for example) resulting in more easily remembered shortenings. What is one advantage and one disadvantage of this scheme, both from the perspective of the user? How would you modify the **NonceGeneration** concept to realize this idea?
 
-Answer: One advantage is that the user can easily remember the shortening because it's a common dictionary word. However, the word being common, the user might confuse it for another nonce or confuse another nonce for it. To incorporate this change in **NonceGeneration**, one can add a static state storing the most common dictionary words and generate only reads from that static state for its nonce generation.
+Answer: One advantage is that the user can easily remember the shortening because it's a common dictionary word. However, the word being common, the user might confuse it for another nonce or confuse another nonce for it. To incorporate this change in **NonceGeneration**, one can add a static state storing the most common dictionary words and generate randomly selects a word from that static state at most once.
 
 ### Synchronization Questions
 
