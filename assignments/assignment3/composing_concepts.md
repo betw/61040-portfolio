@@ -33,20 +33,20 @@ This convention is not used in every case because it won't allow for clear dilen
 
    The user of "UrlShortening" doesn't need to manually set the expiration time for a resource. That should be handeled internally.
 
-7. (????) **Fixed domain.** Suppose the application did not support alternative domain names, and always used a fixed one such as “bit.ly.” How would you change the synchronizations to implement this?
+7. **Fixed domain.** Suppose the application did not support alternative domain names, and always used a fixed one such as “bit.ly.” How would you change the synchronizations to implement this?
 ```
 sync generate
-  when Request.shortenUrl (shortUrlBase)
+  when Request.shortenUrl (shortUrlBase: "bit.ly")
   then NonceGeneration.generate(context: shortUrlBase)
 
 sync register
   when
-    Request.shortenUrl (targetUrl, shortUrlBase)
+    Request.shortenUrl (targetUrl, shortUrlBase: "bit.ly")
     NonceGeneration.generate (): (nonce: ".ly")
   then UrlShortening.register (shortUrlSuffix: nonce, shortUrlBase: "bit", targetUrl)
 
 sync setExpiry
-  when UrlShortening.register (): (shortUrl)
+  when UrlShortening.register (): (shortUrl: "bit.ly")
   then ExpiringResource.setExpiry (resource: shortUrl, seconds: 3600)
 ```
 
@@ -62,7 +62,7 @@ Design a couple of additional concepts to realize this extension, and write them
 ```
 concept: countAnalytics [User]
 purpose: allow a user to view analytics about some service usage
-principle: for each access to the resource, the count associted with the resource
+principle: for each general (not only the user) access to the resource, the count associted with the resource
 increases by one
 state:
    a set of Analytics with
@@ -89,9 +89,10 @@ actions:
       requires: base exists in Associations belonging to user
       effect: return the accumulated counts belonging to each derivative associated with base
 
-concept: userAuth [CountAccess, Association]
+concept: userAuth
 purpose: allow users to signup and authenticate themselves
-
+principle: users register with a username and password and use those
+credentials from then on for authentication
 state:
    a set of Users with
       a String username
@@ -127,7 +128,9 @@ sync
         
 ```
 As a way to assess the modularity of your solution, consider each of the following feature requests, to be included along with analytics. For each one, outline how it might be realized (eg, by changing or adding a concept or a sync), or argue that the feature would be undesirable and should not be included:
+
 Allowing users to choose their own short URLs;
+Add a new sync where **NonceGeneration's** generate is not called. Instead, the user will provide their own shortUrlSuffix and Base, not already taken, and the sync will include a call to UrlShortening.register.
 
 Using the “word as nonce” strategy to generate more memorable short URLs; 
 One way to incorporate this change is to add a state to the NonceGeneration concept that includes the most common dictionary words and generate only selects words from that static state.
