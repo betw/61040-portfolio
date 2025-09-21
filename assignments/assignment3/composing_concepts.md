@@ -58,6 +58,8 @@ sync expireResource
 
 ```
 
+
+### Extending the design
 Design a couple of additional concepts to realize this extension, and write them out in full (but including only the essential actions and state).
 ```
 concept: countAnalytics [User]
