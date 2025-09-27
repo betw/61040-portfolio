@@ -28,5 +28,15 @@ I lack precise tracking of my spending, which makes it difficult to understand w
 | | **Complexity of Budgeting:** [9](https://www.cnbc.com/select/why-budgets-dont-work-for-people/) | Many people find it difficult to stick to a budget because their spending changes frequently, making the process of tracking expenses tedious and discouraging. |
 | | **Behavioral Finance Challenges:** [10](https://www.allgenfinancial.com/reasons-people-cant-retire/) | Behavioral finance principles like "procrastination" and the lack of a "written plan" are major reasons people fail to save, which points to the need for a solution.|
 
+### Application pitch
+name: Piggy Bank
+motivation: 
+Key Features: 
+| Problem | Feature | What it Does | Why it Addresses the Problem |
+|---|---|---|---|
+| **Piggy Bank** | **1. Automated Cost Estimation** | Provides an estimated cost for a discretionary goal (like a vacation) and recommends a weekly or monthly savings amount to reach it. | This feature tackles the common problem of not knowing where to start saving, providing a clear, actionable plan that makes a long-term goal feel less daunting and more achievable. |
+| | **2. Color-coded Vacation Map** | Visualizes average vacation costs on a map, with regions color-coded by expense level. | It makes the abstract goal of saving for travel more tangible and concrete, helping users visualize their goal and stay motivated by seeing the cost in a geographical context.  |
+| | **3. Badge Reward System** | Awards digital badges or other virtual rewards when users hit specific savings milestones. | By gamifying the process, it provides positive reinforcement and makes saving a rewarding experience, helping to sustain motivation over the long term. |
+
 
 
