@@ -1,10 +1,10 @@
 # Problem Domain: Managing Finances
 
 
-### 💰 **Managing Finances**
+### Domain:💰 **Managing Finances**
 I lack precise tracking of my spending, which makes it difficult to understand where my money goes at the end of the month or year and makes it difficult to save for small or large expenses. This problem highlights a need for better visibility into my financial habits. I want to have an easier time tracking my spending and savings so I can go on trips wiht friends or buy electronics, or other consumer items that people can't just buy on the fly.
 
-### Tracking savings for discretionary expenses
+### Problem: Tracking savings for discretionary expenses
 
 | Problem | Stakeholders | How the Stakeholder is Related to the Problem |
 |---|---|---|
