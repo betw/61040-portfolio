@@ -3,15 +3,10 @@ Tracking savings for discretionary expenses
 
 | Problem | Stakeholders | How the Stakeholder is Related to the Problem |
 |---|---|---|
-| **Best Account for Me** | **Direct Users** | These are the individuals actively seeking a financial solution that fits their specific needs. They are the primary beneficiaries of a tool that can help them navigate the complex landscape of banking and investment accounts without compromising their personal data. |
-| | **Financial Institutions** | Banks and investment firms have a vested interest in attracting new customers. A tool that helps users find the "best" account for them could be a powerful marketing channel, or a competitor if it highlights their shortcomings. They are also concerned with the data privacy implications of such a service. |
-| | **Privacy Advocates & Regulators** | These groups are responsible for consumer protection and data security. A tool that handles sensitive financial preferences must adhere to strict regulations and be transparent about its data collection practices to build and maintain user trust. |
 | **Piggy Bank** | **Direct Users** | Individuals who struggle with saving for discretionary goals are the core users. They need a simple, intuitive tool to help them overcome behavioral challenges and consistently set aside money for things they want, like a vacation or a new suit. |
 | | **Fintech Companies & Banks** | Existing financial institutions and technology companies with savings features (like Qapital) are directly impacted. They may see this solution as a threat to their user base or a potential opportunity for partnership or acquisition to enhance their own offerings. |
 | | **Retailers & Travel Companies** | Businesses that sell the products or services people are saving for (e.g., travel agencies, clothing stores) have a direct interest in seeing their target customers reach their savings goals. They could use this tool to offer targeted promotions or a seamless purchasing experience. |
-| **Track a Good Day's Work** | **Direct Users** | These are the people who feel unproductive and want to understand their work habits. This includes freelancers, students, and remote workers who want to improve their time management, reduce feelings of shame, and boost their overall efficiency. |
-| | **Employers & Team Managers** | Businesses are stakeholders because employee productivity directly impacts their bottom line. They could use an anonymized version of the data to identify systemic issues, or recommend the tool to their employees to improve performance and well-being. |
-| | **Psychologists & Mental Health Professionals** | Experts in mental health are related to this problem as it addresses feelings of anxiety and shame connected to productivity. The data and insights from this tool could be valuable for understanding and treating work-related stress, procrastination, and digital burnout. |
+
 
 | Problem | Citation | Explanation |
 |---|---|---|
