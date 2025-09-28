@@ -5,6 +5,7 @@
 I lack precise tracking of my spending, which makes it difficult to understand where my money goes at the end of the month or year and makes it difficult to save for small or large expenses. This problem highlights a need for better visibility into my financial habits. I want to have an easier time tracking my spending and savings so I can go on trips wiht friends or buy electronics, or other consumer items that most people can't just buy on the fly.
 
 ### Problem: Tracking savings for discretionary expenses
+Betweeen paying the bills and saving for large expenses, saving for discretionary expenses is often forgotten about. Either people splurge and potentially regret it later or they avoid discretionary expenses altogether. For instance, if an average person wants to buy a $1000 laptop, they devote a large part of their paycheck to quickly buy it or they decide to get a potentially cheaper, lower-quality laptop.
 
 | Problem | Stakeholders | How the Stakeholder is Related to the Problem |
 |---|---|---|
@@ -30,7 +31,7 @@ I lack precise tracking of my spending, which makes it difficult to understand w
 
 ### Application pitch
 name: Piggy Bank
-motivation: 
+motivation: Piggy Bank will solve the problem of average people spending a large sum of money at once or trying to avoid discretionary expenses altogether.  
 Key Features: 
 | Problem | Feature | What it Does | Why it Addresses the Problem |
 |---|---|---|---|
