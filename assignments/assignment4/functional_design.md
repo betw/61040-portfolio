@@ -166,6 +166,9 @@ Concepts
 ### Brief Note
 The concepts partition the app into five clear roles. **PasswordAuthentication** secures access and ensures that all actions are tied to verified users. **TripChoice** provides the core functionality of selecting or customizing a destination. **AutomatedCostEstimation** ties into **TripChoice** to turn those selections into realistic budgets. **ProgressTracking** converts estimates into actionable savings plans and tracks contributions over time. Finally, **Notification** supports behavioral reinforcement by reminding users to save and celebrating progress milestones. **Synchronizations** connect these concepts: authentication gates access to all others; trip selection triggers estimation; estimation feeds into plan creation; progress events trigger reminders and milestone celebrations. Together, these concepts make Piggy Bank both secure and motivating.
 
+### UI Sketches
+
+
 ### User Journey
 Sarah is a 26-year-old recent graduate who dreams of taking a trip to Tokyo with her friends. But every month, she finds herself overspending on small things and never setting aside enough money. The thought of saving feels overwhelming, and she worries she’ll never make her dream vacation happen.
 
