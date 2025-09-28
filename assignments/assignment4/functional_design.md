@@ -37,4 +37,8 @@ The app offers three key features. First, the **Destinations Catalog** allows us
 Piggy Bank benefits multiple stakeholders. Direct users gain a simple, motivating tool to achieve their travel dreams. Fintech companies and banks may view Piggy Bank as a competitor or a potential partner, presenting opportunities for collaboration or acquisition. Retailers and travel companies benefit when users successfully save and make purchases, creating opportunities for targeted promotions and increasing conversions.
 By combining intuitive planning, automated saving, and rewarding engagement, Piggy Bank transforms the stress of vacation budgeting into an enjoyable, goal-oriented experience.
 
+### Concept Design
+```
+**concept**
 
+```
