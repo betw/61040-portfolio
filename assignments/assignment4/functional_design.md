@@ -39,192 +39,129 @@ By combining intuitive planning, automated saving, and rewarding engagement, Pig
 
 ### Concept Design
 Concepts
-
-concept PasswordAuthentication [User]
-purpose limit access to verified users
-principle a user must register and confirm their email before they can authenticate and use the app
-
-state
-
-a set of Users with
-
-username String
-
-password String
-
-email String
-
-verified Boolean
-
-a set of Tokens with
-
-user User
-
-token Number
-
-actions
-
-register (username, password, email: String): (user: User, token: Number)
-requires username not in Users
-effect creates a User, generates a token, associates it with the user, sends token to email
-
-confirm (username: String, token: Number): (user: User)
-requires token matches that user’s token
-effect sets verified = True for the user
-
-authenticate (username, password: String): (user: User)
-requires user exists and verified = True
-effect returns user if password matches
-
-concept TripChoice [User]
-purpose provide curated and customizable travel options
-principle after a user selects a trip, they can build plans and estimates tied to that trip
-
-state
-
-a set of TripChoices with
-
-destination String
-
-flightEstimate Number
-
-lodgingEstimate Number
-
-activitiesEstimate Number
-
-owner User
-
-actions
-
-browseTrips (): Set<TripChoice>
-effect returns the available trip catalog
-
-selectTrip (user: User, trip: TripChoice): TripChoice
-effect associates user with a trip
-
-customizeTrip (trip: TripChoice, lodging, activities: Number): TripChoice
-effect updates lodging/activities estimates
-
-concept ProgressTracking [TripChoice, User]
-purpose create and track savings plans for discretionary goals
-principle a plan breaks a trip’s cost into manageable contributions
-
-state
-
-a set of Plans with
-
-trip TripChoice
-
-user User
-
-paymentPeriod Number
-
-amountPerPeriod Number
-
-goalAmount Number
-
-currentAmount Number
-
-actions
-
-createPlan (user: User, trip: TripChoice, paymentPeriod: Number, amountPerPeriod: Number): Plan
-effect makes a new plan linked to trip and user
-
-deposit (plan: Plan, amount: Number)
-effect increases currentAmount of plan
-
-deletePlan (plan: Plan)
-requires plan exists
-effect removes plan
-
-modifyPlan (plan: Plan, newPaymentPeriod: Number, newAmountPerPeriod: Number)
-effect updates savings schedule
-
-concept AutomatedCostEstimation [TripChoice]
-purpose generate realistic cost estimates based on trip details
-principle estimates reflect travel dates and user preferences
-
-state
-
-a set of TravelPlans with
-
-fromCity String
-
-toCity String
-
-fromDate Date
-
-toDate Date
-
-a set of Necessities with
-
-accommodation String
-
-diningFlag Boolean
-
-addOns [String]
-
-actions
-
-estimateCost (trip: TripChoice, necessities: Necessity): Number
-effect calculates updated goalAmount
-
-updateEstimates (trip: TripChoice, newNecessities: Necessity): TripChoice
-effect updates trip’s cost estimates
-
-concept Notification [User, ProgressTracking]
-purpose remind users to save and celebrate milestones
-principle nudges encourage consistent savings behavior
-
-state
-
-a set of Notifications with
-
-user User
-
-plan ProgressTracking.Plan
-
-frequency String
-
-message String
-
-actions
-
-scheduleReminder (user: User, plan: Plan, frequency: String)
-effect sets a reminder schedule
-
-sendReminder (user: User, plan: Plan)
-effect delivers reminder message
-
-celebrateMilestone (user: User, plan: Plan)
-effect delivers milestone notification
-
-Synchronizations
-
-sync authenticate
-when PasswordAuthentication.authenticate (username, password): (user)
-then user can invoke TripChoice.selectTrip (user, …)
-
-sync estimate
-when
-TripChoice.selectTrip (user, trip): (trip)
-then AutomatedCostEstimation.estimateCost (trip, necessities): (Number)
-
-sync createPlan
-when
-AutomatedCostEstimation.estimateCost (trip, necessities): (goalAmount)
-then ProgressTracking.createPlan (user, trip, paymentPeriod, amountPerPeriod) with goalAmount
-
-sync notify
-when
-ProgressTracking.deposit (plan, amount)
-then Notification.sendReminder (plan.user, plan)
-
-sync celebrate
-when
-ProgressTracking.deposit (plan, amount) raises currentAmount to ≥ 25%, 50%, 100% of goalAmount
-then Notification.celebrateMilestone (plan.user, plan)
-
-Brief Note
-
-The concepts partition the app into five clear roles. PasswordAuthentication secures access and ensures that all actions are tied to verified users. TripChoice provides the core functionality of selecting or customizing a destination. AutomatedCostEstimation ties into TripChoice to turn those selections into realistic budgets. ProgressTracking converts estimates into actionable savings plans and tracks contributions over time. Finally, Notification supports behavioral reinforcement by reminding users to save and celebrating progress milestones. Synchronizations connect these concepts: authentication gates access to all others; trip selection triggers estimation; estimation feeds into plan creation; progress events trigger reminders and milestone celebrations. Together, these concepts make Piggy Bank both secure and motivating.
+---
+### concept PasswordAuthentication [User]
+* **purpose** limit access to verified users
+* **principle** a user must register and confirm their email before they can authenticate and use the app
+* **state**
+    * a set of **Users** with
+        * `username` **String**
+        * `password` **String**
+        * `email` **String**
+        * `verified` **Boolean**
+    * a set of **Tokens** with
+        * `user` **User**
+        * `token` **Number**
+* **actions**
+    * `register (username, password, email: String): (user: User, token: Number)`
+        * **requires** `username` not in **Users**
+        * **effect** creates a **User**, generates a **token**, associates it with the user, sends **token** to `email`
+    * `confirm (username: String, token: Number): (user: User)`
+        * **requires** `token` matches that user’s token
+        * **effect** sets `verified = True` for the user
+    * `authenticate (username, password: String): (user: User)`
+        * **requires** user exists and `verified = True`
+        * **effect** returns user if `password` matches
+
+---
+### concept TripChoice [User]
+* **purpose** provide curated and customizable travel options
+* **principle** after a user selects a trip, they can build plans and estimates tied to that trip
+* **state**
+    * a set of **TripChoices** with
+        * `destination` **String**
+        * `flightEstimate` **Number**
+        * `lodgingEstimate` **Number**
+        * `activitiesEstimate` **Number**
+        * `owner` **User**
+* **actions**
+    * `browseTrips (): Set<TripChoice>`
+        * **effect** returns the available trip catalog
+    * `selectTrip (user: User, trip: TripChoice): TripChoice`
+        * **effect** associates user with a trip
+    * `customizeTrip (trip: TripChoice, lodging, activities: Number): TripChoice`
+        * **effect** updates lodging/activities estimates
+
+---
+### concept ProgressTracking [TripChoice, User]
+* **purpose** create and track savings plans for discretionary goals
+* **principle** a plan breaks a trip’s cost into manageable contributions
+* **state**
+    * a set of **Plans** with
+        * `trip` **TripChoice**
+        * `user` **User**
+        * `paymentPeriod` **Number**
+        * `amountPerPeriod` **Number**
+        * `goalAmount` **Number**
+        * `currentAmount` **Number**
+* **actions**
+    * `createPlan (user: User, trip: TripChoice, paymentPeriod: Number, amountPerPeriod: Number): Plan`
+        * **effect** makes a new plan linked to `trip` and `user`
+    * `deposit (plan: Plan, amount: Number)`
+        * **effect** increases `currentAmount` of plan
+    * `deletePlan (plan: Plan)`
+        * **requires** `plan` exists
+        * **effect** removes plan
+    * `modifyPlan (plan: Plan, newPaymentPeriod: Number, newAmountPerPeriod: Number)`
+        * **effect** updates savings schedule
+
+---
+### concept AutomatedCostEstimation [TripChoice]
+* **purpose** generate realistic cost estimates based on trip details
+* **principle** estimates reflect travel dates and user preferences
+* **state**
+    * a set of **TravelPlans** with
+        * `fromCity` **String**
+        * `toCity` **String**
+        * `fromDate` **Date**
+        * `toDate` **Date**
+    * a set of **Necessities** with
+        * `accommodation` **String**
+        * `diningFlag` **Boolean**
+        * `addOns` **[String]**
+* **actions**
+    * `estimateCost (trip: TripChoice, necessities: Necessity): Number`
+        * **effect** calculates updated `goalAmount`
+    * `updateEstimates (trip: TripChoice, newNecessities: Necessity): TripChoice`
+        * **effect** updates trip’s cost estimates
+
+---
+### concept Notification [User, ProgressTracking]
+* **purpose** remind users to save and celebrate milestones
+* **principle** nudges encourage consistent savings behavior
+* **state**
+    * a set of **Notifications** with
+        * `user` **User**
+        * `plan` **ProgressTracking.Plan**
+        * `frequency` **String**
+        * `message` **String**
+* **actions**
+    * `scheduleReminder (user: User, plan: Plan, frequency: String)`
+        * **effect** sets a reminder schedule
+    * `sendReminder (user: User, plan: Plan)`
+        * **effect** delivers reminder message
+    * `celebrateMilestone (user: User, plan: Plan)`
+        * **effect** delivers milestone notification
+
+---
+### Synchronizations
+
+* **sync authenticate**
+    * **when** `PasswordAuthentication.authenticate (username, password): (user)`
+    * **then** user can invoke `TripChoice.selectTrip (user, …)`
+* **sync estimate**
+    * **when** `TripChoice.selectTrip (user, trip): (trip)`
+    * **then** `AutomatedCostEstimation.estimateCost (trip, necessities): (Number)`
+* **sync createPlan**
+    * **when** `AutomatedCostEstimation.estimateCost (trip, necessities): (goalAmount)`
+    * **then** `ProgressTracking.createPlan (user, trip, paymentPeriod, amountPerPeriod)` with `goalAmount`
+* **sync notify**
+    * **when** `ProgressTracking.deposit (plan, amount)`
+    * **then** `Notification.sendReminder (plan.user, plan)`
+* **sync celebrate**
+    * **when** `ProgressTracking.deposit (plan, amount)` raises `currentAmount` to $\geq$ 25%, 50%, 100% of `goalAmount`
+    * **then** `Notification.celebrateMilestone (plan.user, plan)`
+
+---
+### Brief Note
+The concepts partition the app into five clear roles. **PasswordAuthentication** secures access and ensures that all actions are tied to verified users. **TripChoice** provides the core functionality of selecting or customizing a destination. **AutomatedCostEstimation** ties into **TripChoice** to turn those selections into realistic budgets. **ProgressTracking** converts estimates into actionable savings plans and tracks contributions over time. Finally, **Notification** supports behavioral reinforcement by reminding users to save and celebrating progress milestones. **Synchronizations** connect these concepts: authentication gates access to all others; trip selection triggers estimation; estimation feeds into plan creation; progress events trigger reminders and milestone celebrations. Together, these concepts make Piggy Bank both secure and motivating.
