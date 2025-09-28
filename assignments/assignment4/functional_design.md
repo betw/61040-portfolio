@@ -5,11 +5,11 @@
 I lack precise tracking of my spending, which makes it difficult to understand where my money goes at the end of the month or year and makes it difficult to save for small or large expenses. This problem highlights a need for better visibility into my financial habits. I want to have an easier time tracking my spending and savings so I can go on trips wiht friends or buy electronics, or other consumer items that most people can't just buy on the fly.
 
 ### Problem: Tracking savings for discretionary expenses
-Betweeen paying the bills and saving for large expenses, saving for discretionary expenses is often forgotten about. Either people splurge and potentially regret it later or they avoid discretionary expenses altogether. For instance, if an average person wants to buy a $1000 laptop, they devote a large part of their paycheck to quickly buy it or they decide to get a potentially cheaper, lower-quality laptop.
+Betweeen paying the bills and saving for large expenses, saving for discretionary expenses is often forgotten about. Either people splurge and potentially regret it later or they avoid discretionary expenses altogether. For instance, if an average person wants to go on a vacation, they devote a large part of a few paychecks to afford it, or they decide to forgo taking the trip.
 
 | Problem | Stakeholders | How the Stakeholder is Related to the Problem |
 |---|---|---|
-| **Piggy Bank** | **Direct Users** | Individuals who struggle with saving for discretionary goals are the core users. They need a simple, intuitive tool to help them overcome behavioral challenges and consistently set aside money for things they want, like a vacation or a new suit. |
+| **Piggy Bank** | **Direct Users** | Individuals who struggle with saving for discretionary goals, especially vacation costs, are the core users. They need a simple, intuitive tool to help them overcome behavioral challenges and consistently set aside money for things they want. |
 | | **Fintech Companies & Banks** | Existing financial institutions and technology companies with savings features (like Qapital) are directly impacted. They may see this solution as a threat to their user base or a potential opportunity for partnership or acquisition to enhance their own offerings. |
 | | **Retailers & Travel Companies** | Businesses that sell the products or services people are saving for (e.g., travel agencies, clothing stores) have a direct interest in seeing their target customers reach their savings goals. They could use this tool to offer targeted promotions or a seamless purchasing experience. |
 
@@ -30,14 +30,11 @@ Betweeen paying the bills and saving for large expenses, saving for discretionar
 | | **Behavioral Finance Challenges:** [10](https://www.allgenfinancial.com/reasons-people-cant-retire/) | Behavioral finance principles like "procrastination" and the lack of a "written plan" are major reasons people fail to save, which points to the need for a solution.|
 
 ### Application pitch
-name: Piggy Bank
-motivation: Piggy Bank will solve the problem of average people spending a large sum of money at once or trying to avoid discretionary expenses altogether.  
-Key Features: 
-| Problem | Feature | What it Does | Why it Addresses the Problem |
-|---|---|---|---|
-| **Piggy Bank** | **1. Automated Cost Estimation** | Provides an estimated cost for a discretionary goal (like a vacation) and recommends a weekly or monthly savings amount to reach it. | This feature tackles the common problem of not knowing where to start saving, providing a clear, actionable plan that makes a long-term goal feel less daunting and more achievable. |
-| | **2. Color-coded Vacation Map** | Visualizes average vacation costs on a map, with regions color-coded by expense level. | It makes the abstract goal of saving for travel more tangible and concrete, helping users visualize their goal and stay motivated by seeing the cost in a geographical context.  |
-| | **3. Badge Reward System** | Awards digital badges or other virtual rewards when users hit specific savings milestones. | By gamifying the process, it provides positive reinforcement and makes saving a rewarding experience, helping to sustain motivation over the long term. |
+Piggy Bank is a fun and easy-to-use app designed to help people save for vacations without the stress of paying a large lump sum. Many individuals dream of traveling but struggle to set aside enough money, often leading to delayed plans or abandoned trips. Piggy Bank solves this problem by turning big vacation expenses into manageable, bite-sized savings goals, making the process motivating and achievable.
 
+The app offers three key features. First, the **Destinations Catalog** allows users to explore a curated library of travel destinations complete with realistic estimates for flights, lodging, and activities. This feature removes the guesswork from planning and gives users a clear idea of the funds they need to save. Second, **Automated Savings & Progress Tracking** helps users set personalized goals, suggests contributions, and monitors progress. By breaking down large expenses into smaller steps, it encourages steady savings and reduces procrastination. Finally, the **Badge Rewards System** celebrates milestones with digital badges, making the journey engaging and reinforcing consistent saving behavior.
+
+Piggy Bank benefits multiple stakeholders. Direct users gain a simple, motivating tool to achieve their travel dreams. Fintech companies and banks may view Piggy Bank as a competitor or a potential partner, presenting opportunities for collaboration or acquisition. Retailers and travel companies benefit when users successfully save and make purchases, creating opportunities for targeted promotions and increasing conversions.
+By combining intuitive planning, automated saving, and rewarding engagement, Piggy Bank transforms the stress of vacation budgeting into an enjoyable, goal-oriented experience.
 
 
