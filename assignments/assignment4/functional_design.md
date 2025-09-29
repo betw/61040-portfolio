@@ -38,7 +38,6 @@ Piggy Bank benefits multiple stakeholders. Direct users gain a simple, motivatin
 By combining intuitive planning, automated saving, and rewarding engagement, Piggy Bank transforms the stress of vacation budgeting into an enjoyable, goal-oriented experience.
 
 ### Concept Design
-Concepts
 ---
 ### concept PasswordAuthentication [User]
 * **purpose** limit access to verified users
