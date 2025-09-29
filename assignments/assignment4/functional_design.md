@@ -144,28 +144,28 @@ By combining intuitive planning, automated saving, and rewarding engagement, Pig
 
 * **sync register**
     * **when** `Request.register(username, password)`
-    * **then** `PasswordAuthentication.regiseter(username, password): (user)
+    * **then** `PasswordAuthentication.register(username, password): (user)`
 * **sync authenticate**
-    * **when** `Request.login(username, password)
+    * **when** `Request.login(username, password)`
     * **then** `PasswordAuthentication.authenticate(username, password): (user)`
 * **sync createPlan**
     * **when**
-    *       `Request.createTravelPlan(user, fromCity, toCity, fromDate, toDate)`
-    *       `TripCostEstimation.createTravelPlan(...): (trip)`
+        * `Request.createTravelPlan(user, fromCity, toCity, fromDate, toDate)`
+        * `TripCostEstimation.createTravelPlan(...): (trip)`
     * **then**
-    *       `TripCostEstimation.estimateCost(user, trip): (cost)`    
+        * `TripCostEstimation.estimateCost(user, trip): (cost)`
 * **sync estimateCost**
     * **when**
-    *       `Request.createPlan(user, trip, paymentPeriod, amountPerPeriod)`
-    *       `TripCostEstimation.estimateCost (user, trip): (cost)`
+        * `Request.createPlan(user, trip, paymentPeriod, amountPerPeriod)`
+        * `TripCostEstimation.estimateCost(user, trip): (cost)`
     * **then**
-    *    `ProgressTracking.createPlan(user, trip, paymentPeriod, amountPerPeriod, cost): plan`
-    *    `Notification.createNotification(progress: plan, frequency: Number, message: String)`
+        * `ProgressTracking.createPlan(user, trip, paymentPeriod, amountPerPeriod, cost): plan`
+        * `Notification.createNotification(progress: plan, frequency: Number, message: String)`
 * **sync deleteTravelPlan**
     * **when** `Request.deleteTravelPlan(user, plan)`
     * **then**
-    *          `TripCostEstimation.deleteTravelPlan(user, travelPlan: plan)`
-    *          `ProgressTracking.deletePlan(user, plan)`
+        * `TripCostEstimation.deleteTravelPlan(user, travelPlan: plan)`
+        * `ProgressTracking.deletePlan(user, plan)`
 ---
 ### Brief Note
 The concepts partition the app into four clear roles. **PasswordAuthentication** secures access and ensures that all actions of all concepts, except PasswordAuth itself, are tied to verified users. **TripCostEstimation** helps to give an estimate of a vacation's cost based on the user's lodging, food, and location choices. **ProgressTracking** converts estimates into actionable savings plans and tracks contributions over time. Finally, **Notification** supports behavioral reinforcement by reminding users to save and celebrating progress milestones. **Synchronizations** connect these concepts: authentication gates access to all others; trip selection triggers estimation; estimation feeds into plan creation; progress events trigger reminders and milestone celebrations. Together, these concepts make Piggy Bank both secure and motivating.
