@@ -47,124 +47,129 @@ Concepts
     * a set of **Users** with
         * `username` **String**
         * `password` **String**
-        * `email` **String**
-        * `verified` **Boolean**
-    * a set of **Tokens** with
-        * `user` **User**
-        * `token` **Number**
 * **actions**
-    * `register (username, password, email: String): (user: User, token: Number)`
+    * `register (username: String, password: String): (user: User)`
         * **requires** `username` not in **Users**
-        * **effect** creates a **User**, generates a **token**, associates it with the user, sends **token** to `email`
-    * `confirm (username: String, token: Number): (user: User)`
-        * **requires** `token` matches that user’s token
-        * **effect** sets `verified = True` for the user
-    * `authenticate (username, password: String): (user: User)`
-        * **requires** user exists and `verified = True`
-        * **effect** returns user if `password` matches
-
+        * **effect** adds username and password and associates it with User user
+    * `authenticate (username: String, password: String): (user: User)`
+        * **requires** username exists
+        * **effect** returns the user if `password` matches the one associated with username, otherwise Error
 ---
-### concept TripChoice [User]
-* **purpose** provide curated and customizable travel options
-* **principle** after a user selects a trip, they can build plans and estimates tied to that trip
+### concept ProgressTracking [TripCostEstimation, User]
+* **purpose** create and track savings plans for discretionary vacation goals
+* **principle** a plan breaks a trip’s cost into manageable contributions, the user sets a payment period and the amount to be paid every period. The user can also change those details for some trip.
 * **state**
-    * a set of **TripChoices** with
-        * `destination` **String**
-        * `flightEstimate` **Number**
-        * `lodgingEstimate` **Number**
-        * `activitiesEstimate` **Number**
-        * `owner` **User**
-* **actions**
-    * `browseTrips (): Set<TripChoice>`
-        * **effect** returns the available trip catalog
-    * `selectTrip (user: User, trip: TripChoice): TripChoice`
-        * **effect** associates user with a trip
-    * `customizeTrip (trip: TripChoice, lodging, activities: Number): TripChoice`
-        * **effect** updates lodging/activities estimates
-
----
-### concept ProgressTracking [TripChoice, User]
-* **purpose** create and track savings plans for discretionary goals
-* **principle** a plan breaks a trip’s cost into manageable contributions
-* **state**
+    * a set of **Users** with
+        * a set of **Plans**  
     * a set of **Plans** with
-        * `trip` **TripChoice**
-        * `user` **User**
-        * `paymentPeriod` **Number**
-        * `amountPerPeriod` **Number**
-        * `goalAmount` **Number**
-        * `currentAmount` **Number**
+        * a `trip` **TripCostEstimation**
+        * a `paymentPeriod` **Number**
+        * a `amountPerPeriod` **Number**
+        * a `goalAmount` **Number**
+        * a `currentAmount` **Number**
 * **actions**
-    * `createPlan (user: User, trip: TripChoice, paymentPeriod: Number, amountPerPeriod: Number): Plan`
+    * `createPlan (user: User, trip: TripCostEstimation, paymentPeriod: Number, amountPerPeriod: Number, goalAmount: Number): (plan: Plan)`
+        * **requires** amountPerPeriod is the amount that the user selects to pay every paymentPeriod month
         * **effect** makes a new plan linked to `trip` and `user`
-    * `deposit (plan: Plan, amount: Number)`
-        * **effect** increases `currentAmount` of plan
-    * `deletePlan (plan: Plan)`
-        * **requires** `plan` exists
+    * `addAmount (user: User, plan: Plan, amount: Number)`
+        * **requires** plan exists and belongs to user
+        * **effect** increases `currentAmount` of plan by amount
+    * `removeAmount (user: User, plan: Plan, amount: Number)`
+       * **requires** plan exists and belongs to user and amount less than or equal to currentAmount associated with plan
+       * **effect** decreses `currentAmount` by amount
+    * `deletePlan (user: User, plan: Plan)`
+        * **requires** `plan` exists and belongs to user
         * **effect** removes plan
-    * `modifyPlan (plan: Plan, newPaymentPeriod: Number, newAmountPerPeriod: Number)`
-        * **effect** updates savings schedule
+    * `modifyPlan (user: User, plan: Plan, newPaymentPeriod: Number, newAmountPerPeriod: Number)`
+        * **requires** plan exists and belongs to user    
+        * **effect** updates savings schedule associated with plan by changing the paymentPeriod to newPaymentPeriod and
+        * amountPerPeriod to newAmountPerPeriod
 
 ---
-### concept AutomatedCostEstimation [TripChoice]
+### concept TripCostEstimation [User]
 * **purpose** generate realistic cost estimates based on trip details
-* **principle** estimates reflect travel dates and user preferences
+* **principle** based on a user's choice of initial dpearture city and arrival city, and the user's sheltering accomodations and food location preferences, an estimate is provided
+* that reflects the aforementioned
 * **state**
+    * a set of Users with
+      * a set of **TravelPlans**
+    * a set of Accomdations with
+      * a set of livingSpaces **String**
+    * a set of Locations with
+       * a String city
     * a set of **TravelPlans** with
-        * `fromCity` **String**
-        * `toCity` **String**
-        * `fromDate` **Date**
-        * `toDate` **Date**
+        * a `fromCity` **Location**
+        * a `toCity` **Location**
+        * a `fromDate` **Date**
+        * a `toDate` **Date**
+        * a `necessity' **Necessity**
     * a set of **Necessities** with
-        * `accommodation` **String**
-        * `diningFlag` **Boolean**
-        * `addOns` **[String]**
+        * an `accommodation` **String**
+        * a `diningFlag` **Boolean**
 * **actions**
-    * `estimateCost (trip: TripChoice, necessities: Necessity): Number`
-        * **effect** calculates updated `goalAmount`
-    * `updateEstimates (trip: TripChoice, newNecessities: Necessity): TripChoice`
-        * **effect** updates trip’s cost estimates
+    *  createTravelPlan(user: User, fromCity: Location, toCity: Location, fromDate: Date, toDate: Date): (travelPlan: TravelPlan)
+         * **requires** fromCity and toCity exists and toDate > fromDate and both are greater than the current date
+         * **effect** create and return a travelPlan with a fromCity, toCity, and from and to dates, and a default necessity (accomodation = "hotel", diningFlag = 1 to indicate eating out; 0 means homecooked meals)
+    * deleteTravelPlan(user: User, travelPlan: TravelPlan)
+         * **requires** travelPlan exists and belongs to user
+         * **effect** delete the travelPlan
+    *  updateNecessity(user: User, travelPlan: TravelPlan, accomodation: String, diningFlag: Boolean): (travelPlan: TravelPlan, necessity: Necessity)
+         * **requires** travelPlan exists and belongs to user, accomodation exists as one of the livingSpaces and diningFlag indicates whether the user eats out most of the time (1) or eats homecooked meals (0)
+         * **effect** create and add the necessity with accomodation and diningFlag to travelPlan
+    * resetNecessity(user: User, travelPlan: TravelPlan)
+         * **requires** travelPlan exists and belongs to user
+         * **effect** reset the necessity belonging to travelPlan to the default as described in the action createTravelPlan
+    * `estimateCost (user: User, travelPlan: TravelPlan): (totalCost: Number)`
+         * **requires** travelPlan exists and belongs to user
+         * **effect** based on the departure, arrival dates, necessities and departure and arrival locations, gives an estimated cost of the plan, totalCost
 
 ---
 ### concept Notification [User, ProgressTracking]
 * **purpose** remind users to save and celebrate milestones
-* **principle** nudges encourage consistent savings behavior
+* **principle** for each user's savings plan, a message is sent to the user to remind them of the amount they planned to save
 * **state**
     * a set of **Notifications** with
         * `user` **User**
-        * `plan` **ProgressTracking.Plan**
-        * `frequency` **String**
+        * `progress` **ProgressTracking**
+        * `frequency` **Number**
         * `message` **String**
 * **actions**
-    * `scheduleReminder (user: User, plan: Plan, frequency: String)`
-        * **effect** sets a reminder schedule
-    * `sendReminder (user: User, plan: Plan)`
-        * **effect** delivers reminder message
-    * `celebrateMilestone (user: User, plan: Plan)`
-        * **effect** delivers milestone notification
+    * createNotification(user: User, progress: ProgressTracking, frequency: Number, message: String): (notification: Notification)
+         * **effect** create and return a notification with the above input details
+    * deleteNotification(user: User, notification: Notification)
+         * **requires** notification exists and belongs to user
+         * **effect** deletes the notification
 
 ---
 ### Synchronizations
 
+* **sync register**
+    * **when** `Request.register(username, password)`
+    * **then** `PasswordAuthentication.regiseter(username, password): (user)
 * **sync authenticate**
-    * **when** `PasswordAuthentication.authenticate (username, password): (user)`
-    * **then** user can invoke `TripChoice.selectTrip (user, …)`
-* **sync estimate**
-    * **when** `TripChoice.selectTrip (user, trip): (trip)`
-    * **then** `AutomatedCostEstimation.estimateCost (trip, necessities): (Number)`
+    * **when** `Request.login(username, password)
+    * **then** `PasswordAuthentication.authenticate(username, password): (user)`
 * **sync createPlan**
-    * **when** `AutomatedCostEstimation.estimateCost (trip, necessities): (goalAmount)`
-    * **then** `ProgressTracking.createPlan (user, trip, paymentPeriod, amountPerPeriod)` with `goalAmount`
-* **sync notify**
-    * **when** `ProgressTracking.deposit (plan, amount)`
-    * **then** `Notification.sendReminder (plan.user, plan)`
-* **sync celebrate**
-    * **when** `ProgressTracking.deposit (plan, amount)` raises `currentAmount` to $\geq$ 25%, 50%, 100% of `goalAmount`
-    * **then** `Notification.celebrateMilestone (plan.user, plan)`
-
+    * **when**
+    *       `Request.createTravelPlan(user, fromCity, toCity, fromDate, toDate)`
+    *       `TripCostEstimation.createTravelPlan(...): (trip)`
+    * **then**
+    *       `TripCostEstimation.estimateCost(user, trip): (cost)`    
+* **sync estimateCost**
+    * **when**
+    *       `Request.createPlan(user, trip, paymentPeriod, amountPerPeriod)`
+    *       `TripCostEstimation.estimateCost (user, trip): (cost)`
+    * **then**
+    *    `ProgressTracking.createPlan(user, trip, paymentPeriod, amountPerPeriod, cost): plan`
+    *    `Notification.createNotification(progress: plan, frequency: Number, message: String)`
+* **sync deleteTravelPlan**
+    * **when** `Request.deleteTravelPlan(user, plan)`
+    * **then**
+    *          `TripCostEstimation.deleteTravelPlan(user, travelPlan: plan)`
+    *          `ProgressTracking.deletePlan(user, plan)`
 ---
 ### Brief Note
-The concepts partition the app into five clear roles. **PasswordAuthentication** secures access and ensures that all actions are tied to verified users. **TripChoice** provides the core functionality of selecting or customizing a destination. **AutomatedCostEstimation** ties into **TripChoice** to turn those selections into realistic budgets. **ProgressTracking** converts estimates into actionable savings plans and tracks contributions over time. Finally, **Notification** supports behavioral reinforcement by reminding users to save and celebrating progress milestones. **Synchronizations** connect these concepts: authentication gates access to all others; trip selection triggers estimation; estimation feeds into plan creation; progress events trigger reminders and milestone celebrations. Together, these concepts make Piggy Bank both secure and motivating.
+The concepts partition the app into four clear roles. **PasswordAuthentication** secures access and ensures that all actions of all concepts, except PasswordAuth itself, are tied to verified users. **TripCostEstimation** helps to give an estimate of a vacation's cost based on the user's lodging, food, and location choices. **ProgressTracking** converts estimates into actionable savings plans and tracks contributions over time. Finally, **Notification** supports behavioral reinforcement by reminding users to save and celebrating progress milestones. **Synchronizations** connect these concepts: authentication gates access to all others; trip selection triggers estimation; estimation feeds into plan creation; progress events trigger reminders and milestone celebrations. Together, these concepts make Piggy Bank both secure and motivating.
 
 ### UI Sketches
 ![ui_sketch](./ui_sketch.jpg)
