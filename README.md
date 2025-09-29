@@ -18,3 +18,9 @@ Some fun facts about me:
 
 [Assignment 2](assignments/assignment2)
 - [Reading and Writing Concepts](assignments/assignment2/reading_writing_concepts.md)
+
+[Assignment 3](assignments/assignment3)
+- [Composing concepts](assignments/assignment3/composing_concepts.md)
+
+[Assignment 4](assignments/assignment4)
+- [Functional Design](assignments/assignment4/functional_design.md)
