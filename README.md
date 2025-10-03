@@ -24,5 +24,7 @@ Some fun facts about me:
 
 [Assignment 2](assignments/assignment2)
 - [Functional Design](assignments/assignment2/functional_design.md)
+  
 [Assignment 3](assignments/assignment3)
 - [An AI-Augmented Concept](assignments/assignment3/ai_augmented_concept.md)
+
