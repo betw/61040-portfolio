@@ -16,11 +16,13 @@ Some fun facts about me:
 - [Evidence for Three Selected Problems](assignments/assignment1/threeproblems.md)
 - [Feature Selection for Selected Problems](assignments/assignment1/features.md)
 
+[Problem Set 1](assignments/ps1)
+- [Reading and Writing Concepts](assignments/ps1/reading_writing_concepts.md)
+
+[Problem Set 2](assignments/ps2)
+- [Composing concepts](assignments/ps2/composing_concepts.md)
+
 [Assignment 2](assignments/assignment2)
-- [Reading and Writing Concepts](assignments/assignment2/reading_writing_concepts.md)
-
+- [Functional Design](assignments/assignment2/functional_design.md)
 [Assignment 3](assignments/assignment3)
-- [Composing concepts](assignments/assignment3/composing_concepts.md)
-
-[Assignment 4](assignments/assignment4)
-- [Functional Design](assignments/assignment4/functional_design.md)
+- [An AI-Augmented Concept](assignments/assignment3/ai_augmented_concept.md)
