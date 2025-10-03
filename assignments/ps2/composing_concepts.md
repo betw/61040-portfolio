@@ -25,15 +25,15 @@ Answer: One advantage is that the user can easily remember the shortening becaus
 
 The "generate" action only requires input "context" whereas the "register" action's inputs include shortUrlSuffix and shortUrlBase. In the latter case's "when" section "NonceGeneration.generate" requires a "context" input, which is shortUrlBase, and its output "nonce" is the shortUrlSuffix passed into "register".
 
-3. **Omitting names.** The convention that allows names to be omitted when argument or result names are the same as their variable names is convenient and allows for a more succinct specification. Why isn’t this convention used in every case?
+2. **Omitting names.** The convention that allows names to be omitted when argument or result names are the same as their variable names is convenient and allows for a more succinct specification. Why isn’t this convention used in every case?
    
 This convention is not used in every case because it won't allow for clear dilenation between actions belonging to different concepts, for example in sync register's "when" section generate's output is nonce, which is the input to register as shortUrlSuffix is assigned to it. Additionally, some variables take on concrete values, as in the case of "seconds" in "sync setExpiry" where 3600 is assigned to seconds.
 
-5. **Inclusion of request.** Why is the **request** action included in the first two syncs but not the third one?
+3. **Inclusion of request.** Why is the **request** action included in the first two syncs but not the third one?
 
    The user of "UrlShortening" doesn't need to manually set the expiration time for a resource. That should be handeled internally.
 
-7. **Fixed domain.** Suppose the application did not support alternative domain names, and always used a fixed one such as “bit.ly.” How would you change the synchronizations to implement this?
+4. **Fixed domain.** Suppose the application did not support alternative domain names, and always used a fixed one such as “bit.ly.” How would you change the synchronizations to implement this?
 ```
 sync generate
   when Request.shortenUrl (shortUrlBase: "bit.ly")
@@ -50,7 +50,7 @@ sync setExpiry
   then ExpiringResource.setExpiry (resource: shortUrl, seconds: 3600)
 ```
 
-9. **Adding a sync.** These synchronizations are not complete; in particular, they don’t do anything when a resource expires. Write a sync for this case, using appropriate actions from the **ExpiringResource** and **URLShortening** concepts.
+5. **Adding a sync.** These synchronizations are not complete; in particular, they don’t do anything when a resource expires. Write a sync for this case, using appropriate actions from the **ExpiringResource** and **URLShortening** concepts.
 ```
 sync expireResource
   when ExpiringResource.expireResource(): resource
