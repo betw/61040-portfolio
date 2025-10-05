@@ -3,7 +3,7 @@
 ## Original concept
 ### concept TripCostEstimation [User]
 * **purpose** generate realistic cost estimates based on trip details
-* **principle** based on a user's choice of initial dpearture city and arrival city, and the user's sheltering accommodations and food location preferences, an estimate is provided
+* **principle** based on a user's choice of initial dpearture city and arrival city, and the user's sheltering accommodations and food location preferences, an estimate of the trip is provided
 * that reflects the aforementioned
 * **state**
     * a set of Users with
@@ -40,7 +40,7 @@
 ## AI-Augmented Concept
 ### concept TripCostEstimation [User]
 * **purpose** generate realistic cost estimates based on trip details
-* **principle** based on a user's choice of initial dpearture city and arrival city, and the user's sheltering accommodations and food location preferences, an estimate is provided
+* **principle** based on a user's choice of initial dpearture city and arrival city, and the user's sheltering accommodations and food location preferences, an estimate of the trip is provided
 * that reflects the aforementioned
 * **state**
     * a set of Users with
